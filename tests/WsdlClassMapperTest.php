@@ -1,22 +1,23 @@
 <?php
 
-class WsdlClassMapperTest extends PHPUnit_Framework_TestCase {
-	
-	private $wsdlClassMapper;
-	private static $classDefinitionsFile;
+class WsdlClassMapperTest extends PHPUnit_Framework_TestCase
+{
 
-	static function setUpBeforeClass() {
-		self::$classDefinitionsFile = sprintf('/tmp/' . uniqid());
-	}
+    private $wsdlClassMapper;
+    private static $classDefinitionsFile;
 
-	static function tearDownAfterClass() {
+    static function setUpBeforeClass() {
+        self::$classDefinitionsFile = sprintf('/tmp/' . uniqid());
+    }
+
+    static function tearDownAfterClass() {
         @unlink(self::$classDefinitionsFile);
-	}
+    }
 
-	protected function setUp() {
+    protected function setUp() {
         $this->wsdlClassMapper = new Vmwarephp\WsdlClassMapper(self::$classDefinitionsFile);
         $this->wsdlClassMapper->configureClassMapCaching(false);
-	}
+    }
 
     function testCanProvideAClassMapWhenWsdlClassDefinitionsAreProvided() {
         $this->writeWsdlClassDefinitions("<?php namespace Vmwarephp;\n class Klass {} \n class Klass1 {}");
