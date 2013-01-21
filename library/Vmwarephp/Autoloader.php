@@ -18,11 +18,13 @@
  * @author Fabien Potencier <fabien.potencier@symfony-project.org>
  */
 
+namespace Vmwarephp;
+
 class Autoloader {
-    private $_fileExtension = '.php';
-    private $_namespace;
-    private $_includePath;
-    private $_namespaceSeparator = '\\';
+    private $fileExtension = '.php';
+    private $namespace;
+    private $includePath;
+    private $namespaceSeparator = '\\';
 
     /**
      * Creates a new <tt>SplClassLoader</tt> that loads classes of the
@@ -32,8 +34,8 @@ class Autoloader {
      */
     public function __construct($ns = null, $includePath = null)
     {
-        $this->_namespace = $ns;
-        $this->_includePath = $includePath;
+        $this->namespace = $ns;
+        $this->includePath = $includePath;
     }
 
     /**
@@ -43,7 +45,7 @@ class Autoloader {
      */
     public function setNamespaceSeparator($sep)
     {
-        $this->_namespaceSeparator = $sep;
+        $this->namespaceSeparator = $sep;
     }
 
     /**
@@ -53,7 +55,7 @@ class Autoloader {
      */
     public function getNamespaceSeparator()
     {
-        return $this->_namespaceSeparator;
+        return $this->namespaceSeparator;
     }
 
     /**
@@ -63,7 +65,7 @@ class Autoloader {
      */
     public function setIncludePath($includePath)
     {
-        $this->_includePath = $includePath;
+        $this->includePath = $includePath;
     }
 
     /**
@@ -73,7 +75,7 @@ class Autoloader {
      */
     public function getIncludePath()
     {
-        return $this->_includePath;
+        return $this->includePath;
     }
 
     /**
@@ -83,7 +85,7 @@ class Autoloader {
      */
     public function setFileExtension($fileExtension)
     {
-        $this->_fileExtension = $fileExtension;
+        $this->fileExtension = $fileExtension;
     }
 
     /**
@@ -93,7 +95,7 @@ class Autoloader {
      */
     public function getFileExtension()
     {
-        return $this->_fileExtension;
+        return $this->fileExtension;
     }
 
     /**
@@ -120,17 +122,16 @@ class Autoloader {
      */
     public function loadClass($className)
     {
-        if (null === $this->_namespace || $this->_namespace.$this->_namespaceSeparator === substr($className, 0, strlen($this->_namespace.$this->_namespaceSeparator))) {
+        if (null === $this->namespace || $this->namespace.$this->namespaceSeparator === substr($className, 0, strlen($this->namespace.$this->namespaceSeparator))) {
             $fileName = '';
 
-            if (false !== ($lastNsPos = strripos($className, $this->_namespaceSeparator))) {
+            if (false !== ($lastNsPos = strripos($className, $this->namespaceSeparator))) {
                 $namespace = substr($className, 0, $lastNsPos);
                 $className = substr($className, $lastNsPos + 1);
-                $fileName = str_replace($this->_namespaceSeparator, DIRECTORY_SEPARATOR, $namespace) . DIRECTORY_SEPARATOR;
+                $fileName = str_replace($this->namespaceSeparator, DIRECTORY_SEPARATOR, $namespace) . DIRECTORY_SEPARATOR;
             }
-            $fileName .= str_replace('_', DIRECTORY_SEPARATOR, $className) . $this->_fileExtension;
-
-            require ($this->_includePath !== null ? $this->_includePath . DIRECTORY_SEPARATOR : '') . $fileName;
+            $fileName .= str_replace('_', DIRECTORY_SEPARATOR, $className) . $this->fileExtension;
+            require_once ($this->includePath !== null ? $this->includePath . DIRECTORY_SEPARATOR : '') . $fileName;
         }
     }
 }
