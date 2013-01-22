@@ -55,7 +55,11 @@ class Autoloader
 				$shortClassName = $this->getShortClassName($className, $lastNsPos);
 				$fileDirectoryPath .= $this->namespaceToPath($namespace);
 			}
-			require_once $this->makeAbsolutePath($fileDirectoryPath, $shortClassName);
+			$absolutePath = $this->makeAbsolutePath($fileDirectoryPath, $shortClassName);
+			if (file_exists($absolutePath)) {
+				return require_once $absolutePath;
+			}
+			require_once 'TypeDefinitions.inc';
 		}
 	}
 
