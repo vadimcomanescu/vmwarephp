@@ -21,8 +21,8 @@ class WsdlClassMapperTest extends PHPUnit_Framework_TestCase {
 	function testCanProvideAClassMapWhenWsdlClassDefinitionsAreProvided() {
 		$this->writeWsdlClassDefinitions("<?php namespace Vmwarephp;\n class Klass {} \n class Klass1 {}");
 
-		$expectedClassMap = array('Klass' => 'Vmwarephp\Klass', 'Klass1' => 'Vmwarephp\Klass1');
-		$this->assertEquals($expectedClassMap, $this->wsdlClassMapper->getClassMap());
+		$this->assertEquals(array('Klass' => '\Vmwarephp\Klass', 'Klass1' => '\Vmwarephp\Klass1'),
+			$this->wsdlClassMapper->getClassMap());
 	}
 
 	function testClassMapIsEmptyWhenClassDefinitionsAreNotInAPhpFile() {
@@ -34,8 +34,7 @@ class WsdlClassMapperTest extends PHPUnit_Framework_TestCase {
 	function testClassMapDoesNotContainDuplicates() {
 		$this->writeWsdlClassDefinitions("<?php namespace Vmwarephp;\n class Klass {} \n class Klass {}");
 
-		$expectedClassMap = array('Klass' => 'Vmwarephp\Klass');
-		$this->assertEquals($expectedClassMap, $this->wsdlClassMapper->getClassMap());
+		$this->assertEquals(array('Klass' => '\Vmwarephp\Klass'), $this->wsdlClassMapper->getClassMap());
 	}
 
 	private function writeWsdlClassDefinitions($classDefinitions) {

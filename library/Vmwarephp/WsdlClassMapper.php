@@ -16,8 +16,8 @@ class WsdlClassMapper {
 		return $this->classMap;
 	}
 
-	function configureClassMapCaching($value) {
-		$this->useClassMapCaching = $value;
+	function configureClassMapCaching($useCaching = true) {
+		$this->useClassMapCaching = $useCaching;
 	}
 
 	private function initializeClassMapFromCache() {
@@ -49,7 +49,8 @@ class WsdlClassMapper {
 	}
 
 	private function makeAbsoluteClassName($namespace, $className) {
-		return $namespace ? $namespace . '\\' . $className : $className;
+		$namespaceSeparator = '\\';
+		return $namespace ? $namespaceSeparator . $namespace . $namespaceSeparator . $className : $className;
 	}
 
 	private function tokenRepresentsClassDefinition($token) {
