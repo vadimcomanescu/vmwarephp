@@ -36,29 +36,27 @@ class WsdlClassMapper {
 	private function generateClassMap() {
 		$classMap = array();
 		$allTokens = token_get_all($this->readClassDefinitions());
-		$namespace = null;
 		foreach ($allTokens as $key => $token) {
-			if ($this->tokenRepresentsNamespaceDefinition($token))
-				$namespace = $allTokens[$key + 2][1];
 			if ($this->tokenRepresentsClassDefinition($token)) {
 				$className = $allTokens[$key + 2][1];
-				$classMap[$className] = $this->makeAbsoluteClassName($namespace, $className);
+				$classMap[$className] = $className;
 			}
 		}
-		return $classMap;
+		return array_merge($classMap, $this->getExtendedClasses());
 	}
 
-	private function makeAbsoluteClassName($namespace, $className) {
-		$namespaceSeparator = '\\';
-		return $namespace ? $namespaceSeparator . $namespace . $namespaceSeparator . $className : $className;
+	private function getExtendedClasses() {
+		$classes = array();
+		foreach (scandir(__DIR__ . '/Extensions/') as $fileName) {
+			if (in_array($fileName, array('.', '..'))) continue;
+			$className = explode('.', $fileName)[0];
+			$classes[$className] = '\\Vmwarephp\\Extensions\\' . $className;
+		}
+		return $classes;
 	}
 
 	private function tokenRepresentsClassDefinition($token) {
 		return is_array($token) && $token[0] == T_CLASS;
-	}
-
-	private function tokenRepresentsNamespaceDefinition($token) {
-		return is_array($token) && $token[0] == T_NAMESPACE;
 	}
 
 	private function readClassDefinitions() {

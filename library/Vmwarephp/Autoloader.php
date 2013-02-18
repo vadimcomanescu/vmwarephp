@@ -2,8 +2,7 @@
 
 namespace Vmwarephp;
 
-class Autoloader
-{
+class Autoloader {
 	private $fileExtension = '.php';
 	private $namespace;
 	private $includePath;
@@ -47,6 +46,10 @@ class Autoloader
 	}
 
 	public function loadClass($className) {
+		if (strpos($className, $this->namespace) === false) {
+			require_once 'TypeDefinitions.inc';
+			return;
+		}
 		if (is_null($this->namespace) || $this->namespace . $this->namespaceSeparator === substr($className, 0, strlen($this->namespace . $this->namespaceSeparator))) {
 			$fileDirectoryPath = '';
 			$lastNsPos = strripos($className, $this->namespaceSeparator);
@@ -59,7 +62,6 @@ class Autoloader
 			if (file_exists($absolutePath)) {
 				return require_once $absolutePath;
 			}
-			require_once 'TypeDefinitions.inc';
 		}
 	}
 
