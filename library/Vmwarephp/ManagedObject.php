@@ -5,7 +5,7 @@ class ManagedObject {
 	private $reference;
 	protected $vmwareService;
 
-	function __construct(Service $vmwareService, ManagedObjectReference $managedObjectReference) {
+	function __construct(Service $vmwareService, \ManagedObjectReference $managedObjectReference) {
 		$this->vmwareService = $vmwareService;
 		$this->reference = $managedObjectReference;
 	}

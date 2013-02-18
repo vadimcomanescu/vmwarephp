@@ -7,7 +7,7 @@ class ManagedObjectTest extends PHPUnit_Framework_TestCase {
 
 	protected function setUp() {
 		$this->vmwareService = \Mockery::mock('Vmwarephp\Service');
-		$this->managedObject = new \Vmwarephp\ManagedObject($this->vmwareService, new \Vmwarephp\ManagedObjectReference('vm-115', 'VirtualMachine'));
+		$this->managedObject = new \Vmwarephp\ManagedObject($this->vmwareService, new ManagedObjectReference('vm-115', 'VirtualMachine'));
 	}
 
 	function testIfPropertyIsSetOnTheObjectItNeverQueriesTheService() {
@@ -31,6 +31,6 @@ class ManagedObjectTest extends PHPUnit_Framework_TestCase {
 	}
 
 	function testTransformsIntoAManagedObjectReference() {
-		$this->assertInstanceOf('\Vmwarephp\ManagedObjectReference', $this->managedObject->toReference());
+		$this->assertInstanceOf('ManagedObjectReference', $this->managedObject->toReference());
 	}
 }
