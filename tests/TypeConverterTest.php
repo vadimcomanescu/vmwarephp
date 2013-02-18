@@ -26,8 +26,8 @@ class TypeConverterTest extends PHPUnit_Framework_TestCase {
 	}
 
 	function testAnArrayOfStringsTypeBecomesAPhpArrayOfStrings() {
-		$obj1 = new \Vmwarephp\ArrayOfString(array('1', '2'));
-		$obj2 = new \Vmwarephp\ArrayOfString('1');
+		$obj1 = new \ArrayOfString(array('1', '2'));
+		$obj2 = new \ArrayOfString('1');
 
 		$this->assertEquals(array('1', '2'), $this->typeConverter->convert($obj1));
 		$this->assertEquals(array('1'), $this->typeConverter->convert($obj2));
@@ -42,21 +42,21 @@ class TypeConverterTest extends PHPUnit_Framework_TestCase {
 
 	function testAnArrayOfManagedObjectReferenceTypeBecomesAPhpArrayOfManagedObjects() {
 		$reference = $this->factory->makeReference('datastore-82', 'Datastore');
-		$obj = new \Vmwarephp\ArrayOfManagedObjectReference($reference);
+		$obj = new \ArrayOfManagedObjectReference($reference);
 
 		$expectedValue = array($this->factory->make($this->vmwareService, $reference));
 		$this->assertEquals($expectedValue, $this->typeConverter->convert($obj));
 	}
 
 	function testAnArrayOfAnyTypeBecomesAnArrayOfObjectsWithAllTheirPropertiesConverted() {
-		$alarmState1 = new \Vmwarephp\AlarmState("alarm-1.datacenter-21", $this->factory->makeReference('group-d1', 'Folder'));
-		$alarmState2 = new \Vmwarephp\AlarmState("alarm-2.datacenter-21", $this->factory->makeReference('group-d2', 'Folder'));
+		$alarmState1 = new \AlarmState("alarm-1.datacenter-21", $this->factory->makeReference('group-d1', 'Folder'));
+		$alarmState2 = new \AlarmState("alarm-2.datacenter-21", $this->factory->makeReference('group-d2', 'Folder'));
 
-		$anyTypeArray = new \Vmwarephp\ArrayOfAnyType(array($alarmState1, $alarmState2));
+		$anyTypeArray = new \ArrayOfAnyType(array($alarmState1, $alarmState2));
 
-		$alarmState1Converted = new \Vmwarephp\AlarmState("alarm-1.datacenter-21",
+		$alarmState1Converted = new \AlarmState("alarm-1.datacenter-21",
 			$this->factory->make($this->vmwareService, $this->factory->makeReference('group-d1', 'Folder')));
-		$alarmState2Converted = new \Vmwarephp\AlarmState("alarm-2.datacenter-21",
+		$alarmState2Converted = new \AlarmState("alarm-2.datacenter-21",
 			$this->factory->make($this->vmwareService, $this->factory->makeReference('group-d2', 'Folder')));
 
 		$convertedValue = array($alarmState1Converted, $alarmState2Converted);
@@ -66,9 +66,9 @@ class TypeConverterTest extends PHPUnit_Framework_TestCase {
 	// For a detailed definition of object content see sdk documentation: http://pubs.vmware.com/vsphere-51/index.jsp
 	function testAnObjectContentBecomesAManagedObjectWithProperties() {
 		$taskReference = $this->factory->makeReference('task-123', 'Task');
-		$dynamicProperty = new \Vmwarephp\DynamicProperty('recentTask', $taskReference);
+		$dynamicProperty = new \DynamicProperty('recentTask', $taskReference);
 		$vmReference = $this->factory->makeReference('vm-114', 'VirtualMachine');
-		$objectContent = new \Vmwarephp\ObjectContent($vmReference, array($dynamicProperty));
+		$objectContent = new \ObjectContent($vmReference, array($dynamicProperty));
 
 		$virtualMachine = $this->typeConverter->convert($objectContent);
 
@@ -77,7 +77,7 @@ class TypeConverterTest extends PHPUnit_Framework_TestCase {
 
 	function testAnObjectContentWithoutDynamicPropertyBecomesAManagedObjectWithoutAnyProperties() {
 		$vmReference = $this->factory->makeReference('vm-114', 'VirtualMachine');
-		$objectContent = new \Vmwarephp\ObjectContent($vmReference, null);
+		$objectContent = new \ObjectContent($vmReference, null);
 
 		$virtualMachine = $this->typeConverter->convert($objectContent);
 		$this->assertEmpty(get_object_vars($virtualMachine));

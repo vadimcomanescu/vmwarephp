@@ -51,7 +51,7 @@ class TypeConverter {
 	}
 
 	private function isAnObjectContent($value) {
-		return $value instanceof ObjectContent;
+		return $value instanceof \ObjectContent;
 	}
 
 	private function isANullValue($value) {
@@ -67,7 +67,7 @@ class TypeConverter {
 
 	private function isAManagedObjectReference($value) {
 		if (!is_object($value)) return false;
-		return $value instanceof ManagedObjectReference || (isset($value->_) && isset($value->type));
+		return $value instanceof \ManagedObjectReference || (isset($value->_) && isset($value->type));
 	}
 
 	private function isAnArrayOf($value) {
