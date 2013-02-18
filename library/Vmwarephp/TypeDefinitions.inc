@@ -1,6 +1,4 @@
 <?php
-namespace Vmwarephp;
-
 class DynamicArray {
 	public $dynamicType; //string
 	public $val; //anyType
@@ -77,11 +75,14 @@ class ArrayOfLocalizableMessage {
 	}
 }
 
-class HostCommunication {}
+class HostCommunication {
+}
 
-class HostNotConnected {}
+class HostNotConnected {
+}
 
-class HostNotReachable {}
+class HostNotReachable {
+}
 
 class InvalidArgument {
 	public $invalidProperty; //string
@@ -91,7 +92,8 @@ class InvalidArgument {
 	}
 }
 
-class InvalidRequest {}
+class InvalidRequest {
+}
 
 class InvalidType {
 	public $argument; //string
@@ -119,15 +121,20 @@ class MethodNotFound {
 	}
 }
 
-class NotEnoughLicenses {}
+class NotEnoughLicenses {
+}
 
-class NotImplemented {}
+class NotImplemented {
+}
 
-class NotSupported {}
+class NotSupported {
+}
 
-class RequestCanceled {}
+class RequestCanceled {
+}
 
-class SecurityError {}
+class SecurityError {
+}
 
 class SystemError {
 	public $reason; //string
@@ -179,7 +186,8 @@ class ArrayOfMethodFault {
 	}
 }
 
-class RuntimeFault {}
+class RuntimeFault {
+}
 
 class ManagedObjectReference {
 	public $_; //string
@@ -255,7 +263,8 @@ class ArrayOfShort {
 	}
 }
 
-class InvalidCollectorVersion {}
+class InvalidCollectorVersion {
+}
 
 class InvalidProperty {
 	public $name; //string
@@ -341,13 +350,14 @@ class ArrayOfSelectionSpec {
 	}
 }
 
-class TraversalSpec {
+class TraversalSpec extends SelectionSpec {
 	public $type; //string
 	public $path; //string
 	public $skip; //boolean
 	public $selectSet; //SelectionSpec
 
-	function __construct($type = null, $path = null, $skip = null, $selectSet = null) {
+	function __construct($name = null, $type = null, $path = null, $skip = null, $selectSet = null) {
+		parent::__construct($name);
 		$this->type = $type;
 		$this->path = $path;
 		$this->skip = $skip;
@@ -1185,7 +1195,8 @@ class DVSPolicy {
 	}
 }
 
-class DVSUplinkPortPolicy {}
+class DVSUplinkPortPolicy {
+}
 
 class DVSNameArrayUplinkPortPolicy {
 	public $uplinkPortName; //string
@@ -1815,7 +1826,8 @@ class ArrayOfLicenseAssignmentManagerLicenseAssignment {
 	}
 }
 
-class LicenseSource {}
+class LicenseSource {
+}
 
 class LicenseServerSource {
 	public $licenseServer; //string
@@ -2147,7 +2159,8 @@ class OvfManagerCommonParams {
 	}
 }
 
-class OvfValidateHostParams {}
+class OvfValidateHostParams {
+}
 
 class OvfValidateHostResult {
 	public $downloadSize; //long
@@ -2167,7 +2180,8 @@ class OvfValidateHostResult {
 	}
 }
 
-class OvfParseDescriptorParams {}
+class OvfParseDescriptorParams {
+}
 
 class OvfParseDescriptorResult {
 	public $eula; //string
@@ -3001,7 +3015,8 @@ class SessionManagerGenericServiceTicket {
 	}
 }
 
-class SessionManagerServiceRequestSpec {}
+class SessionManagerServiceRequestSpec {
+}
 
 class SessionManagerHttpServiceRequestSpec {
 	public $method; //string
@@ -3309,9 +3324,11 @@ class ArrayOfTaskInfo {
 	}
 }
 
-class TaskReason {}
+class TaskReason {
+}
 
-class TaskReasonSystem {}
+class TaskReasonSystem {
+}
 
 class TaskReasonUser {
 	public $userName; //string
@@ -3569,7 +3586,8 @@ class DiskChangeInfo {
 	}
 }
 
-class Action {}
+class Action {
+}
 
 class MethodActionArgument {
 	public $value; //anyType
@@ -3611,7 +3629,8 @@ class SendEmailAction {
 	}
 }
 
-class SendSNMPAction {}
+class SendSNMPAction {
+}
 
 class RunScriptAction {
 	public $script; //string
@@ -3631,7 +3650,8 @@ class CreateTaskAction {
 	}
 }
 
-class AlarmAction {}
+class AlarmAction {
+}
 
 class ArrayOfAlarmAction {
 	public $AlarmAction; //AlarmAction
@@ -3713,7 +3733,8 @@ class AlarmDescription {
 	}
 }
 
-class AlarmExpression {}
+class AlarmExpression {
+}
 
 class ArrayOfAlarmExpression {
 	public $AlarmExpression; //AlarmExpression
@@ -4203,9 +4224,11 @@ class ArrayOfClusterDasAamNodeState {
 	}
 }
 
-class ClusterDasAdmissionControlInfo {}
+class ClusterDasAdmissionControlInfo {
+}
 
-class ClusterDasAdmissionControlPolicy {}
+class ClusterDasAdmissionControlPolicy {
+}
 
 class DasHeartbeatDatastoreInfo {
 	public $datastore; //ManagedObjectReference
@@ -4261,7 +4284,8 @@ class ClusterDasConfigInfo {
 	}
 }
 
-class ClusterDasData {}
+class ClusterDasData {
+}
 
 class ClusterDasDataSummary {
 	public $hostListVersion; //long
@@ -4337,7 +4361,8 @@ class ClusterDasFdmHostState {
 	}
 }
 
-class ClusterDasHostInfo {}
+class ClusterDasHostInfo {
+}
 
 class ClusterDasHostRecommendation {
 	public $host; //ManagedObjectReference
@@ -5219,7 +5244,8 @@ class ArrayOfDistributedVirtualSwitchHostMemberPnicSpec {
 	}
 }
 
-class DistributedVirtualSwitchHostMemberBacking {}
+class DistributedVirtualSwitchHostMemberBacking {
+}
 
 class DistributedVirtualSwitchHostMemberPnicBacking {
 	public $pnicSpec; //DistributedVirtualSwitchHostMemberPnicSpec
@@ -5645,7 +5671,8 @@ class VmwareUplinkPortTeamingPolicy {
 	}
 }
 
-class VmwareDistributedVirtualSwitchVlanSpec {}
+class VmwareDistributedVirtualSwitchVlanSpec {
+}
 
 class VmwareDistributedVirtualSwitchPvlanSpec {
 	public $pvlanId; //int
@@ -5819,17 +5846,23 @@ class GeneralEvent {
 	}
 }
 
-class GeneralHostInfoEvent {}
+class GeneralHostInfoEvent {
+}
 
-class GeneralHostWarningEvent {}
+class GeneralHostWarningEvent {
+}
 
-class GeneralHostErrorEvent {}
+class GeneralHostErrorEvent {
+}
 
-class GeneralVmInfoEvent {}
+class GeneralVmInfoEvent {
+}
 
-class GeneralVmWarningEvent {}
+class GeneralVmWarningEvent {
+}
 
-class GeneralVmErrorEvent {}
+class GeneralVmErrorEvent {
+}
 
 class GeneralUserEvent {
 	public $entity; //ManagedEntityEventArgument
@@ -5883,9 +5916,11 @@ class HealthStatusChangedEvent {
 	}
 }
 
-class HostInventoryUnreadableEvent {}
+class HostInventoryUnreadableEvent {
+}
 
-class DatacenterEvent {}
+class DatacenterEvent {
+}
 
 class DatacenterCreatedEvent {
 	public $parent; //FolderEventArgument
@@ -5905,9 +5940,11 @@ class DatacenterRenamedEvent {
 	}
 }
 
-class SessionEvent {}
+class SessionEvent {
+}
 
-class ServerStartedSessionEvent {}
+class ServerStartedSessionEvent {
+}
 
 class UserLoginSessionEvent {
 	public $ipAddress; //string
@@ -5921,7 +5958,8 @@ class UserLoginSessionEvent {
 	}
 }
 
-class UserLogoutSessionEvent {}
+class UserLogoutSessionEvent {
+}
 
 class BadUsernameSessionEvent {
 	public $ipAddress; //string
@@ -5931,7 +5969,8 @@ class BadUsernameSessionEvent {
 	}
 }
 
-class AlreadyAuthenticatedSessionEvent {}
+class AlreadyAuthenticatedSessionEvent {
+}
 
 class NoAccessUserEvent {
 	public $ipAddress; //string
@@ -5967,19 +6006,26 @@ class UpgradeEvent {
 	}
 }
 
-class InfoUpgradeEvent {}
+class InfoUpgradeEvent {
+}
 
-class WarningUpgradeEvent {}
+class WarningUpgradeEvent {
+}
 
-class ErrorUpgradeEvent {}
+class ErrorUpgradeEvent {
+}
 
-class UserUpgradeEvent {}
+class UserUpgradeEvent {
+}
 
-class HostEvent {}
+class HostEvent {
+}
 
-class HostDasEvent {}
+class HostDasEvent {
+}
 
-class HostConnectedEvent {}
+class HostConnectedEvent {
+}
 
 class HostDisconnectedEvent {
 	public $reason; //string
@@ -5997,15 +6043,20 @@ class HostSyncFailedEvent {
 	}
 }
 
-class HostConnectionLostEvent {}
+class HostConnectionLostEvent {
+}
 
-class HostReconnectionFailedEvent {}
+class HostReconnectionFailedEvent {
+}
 
-class HostCnxFailedNoConnectionEvent {}
+class HostCnxFailedNoConnectionEvent {
+}
 
-class HostCnxFailedBadUsernameEvent {}
+class HostCnxFailedBadUsernameEvent {
+}
 
-class HostCnxFailedBadVersionEvent {}
+class HostCnxFailedBadVersionEvent {
+}
 
 class HostCnxFailedAlreadyManagedEvent {
 	public $serverName; //string
@@ -6015,21 +6066,29 @@ class HostCnxFailedAlreadyManagedEvent {
 	}
 }
 
-class HostCnxFailedNoLicenseEvent {}
+class HostCnxFailedNoLicenseEvent {
+}
 
-class HostCnxFailedNetworkErrorEvent {}
+class HostCnxFailedNetworkErrorEvent {
+}
 
-class HostRemovedEvent {}
+class HostRemovedEvent {
+}
 
-class HostCnxFailedCcagentUpgradeEvent {}
+class HostCnxFailedCcagentUpgradeEvent {
+}
 
-class HostCnxFailedBadCcagentEvent {}
+class HostCnxFailedBadCcagentEvent {
+}
 
-class HostCnxFailedEvent {}
+class HostCnxFailedEvent {
+}
 
-class HostCnxFailedAccountFailedEvent {}
+class HostCnxFailedAccountFailedEvent {
+}
 
-class HostCnxFailedNoAccessEvent {}
+class HostCnxFailedNoAccessEvent {
+}
 
 class HostShutdownEvent {
 	public $reason; //string
@@ -6039,29 +6098,41 @@ class HostShutdownEvent {
 	}
 }
 
-class HostCnxFailedNotFoundEvent {}
+class HostCnxFailedNotFoundEvent {
+}
 
-class HostCnxFailedTimeoutEvent {}
+class HostCnxFailedTimeoutEvent {
+}
 
-class HostUpgradeFailedEvent {}
+class HostUpgradeFailedEvent {
+}
 
-class EnteringMaintenanceModeEvent {}
+class EnteringMaintenanceModeEvent {
+}
 
-class EnteredMaintenanceModeEvent {}
+class EnteredMaintenanceModeEvent {
+}
 
-class ExitMaintenanceModeEvent {}
+class ExitMaintenanceModeEvent {
+}
 
-class CanceledHostOperationEvent {}
+class CanceledHostOperationEvent {
+}
 
-class TimedOutHostOperationEvent {}
+class TimedOutHostOperationEvent {
+}
 
-class HostDasEnabledEvent {}
+class HostDasEnabledEvent {
+}
 
-class HostDasDisabledEvent {}
+class HostDasDisabledEvent {
+}
 
-class HostDasEnablingEvent {}
+class HostDasEnablingEvent {
+}
 
-class HostDasDisablingEvent {}
+class HostDasDisablingEvent {
+}
 
 class HostDasErrorEvent {
 	public $message; //string
@@ -6073,11 +6144,14 @@ class HostDasErrorEvent {
 	}
 }
 
-class HostDasOkEvent {}
+class HostDasOkEvent {
+}
 
-class VcAgentUpgradedEvent {}
+class VcAgentUpgradedEvent {
+}
 
-class VcAgentUninstalledEvent {}
+class VcAgentUninstalledEvent {
+}
 
 class VcAgentUpgradeFailedEvent {
 	public $reason; //string
@@ -6095,7 +6169,8 @@ class VcAgentUninstallFailedEvent {
 	}
 }
 
-class HostAddedEvent {}
+class HostAddedEvent {
+}
 
 class HostAddFailedEvent {
 	public $hostname; //string
@@ -6115,27 +6190,38 @@ class HostIpChangedEvent {
 	}
 }
 
-class EnteringStandbyModeEvent {}
+class EnteringStandbyModeEvent {
+}
 
-class DrsEnteringStandbyModeEvent {}
+class DrsEnteringStandbyModeEvent {
+}
 
-class EnteredStandbyModeEvent {}
+class EnteredStandbyModeEvent {
+}
 
-class DrsEnteredStandbyModeEvent {}
+class DrsEnteredStandbyModeEvent {
+}
 
-class ExitingStandbyModeEvent {}
+class ExitingStandbyModeEvent {
+}
 
-class DrsExitingStandbyModeEvent {}
+class DrsExitingStandbyModeEvent {
+}
 
-class ExitedStandbyModeEvent {}
+class ExitedStandbyModeEvent {
+}
 
-class DrsExitedStandbyModeEvent {}
+class DrsExitedStandbyModeEvent {
+}
 
-class ExitStandbyModeFailedEvent {}
+class ExitStandbyModeFailedEvent {
+}
 
-class DrsExitStandbyModeFailedEvent {}
+class DrsExitStandbyModeFailedEvent {
+}
 
-class UpdatedAgentBeingRestartedEvent {}
+class UpdatedAgentBeingRestartedEvent {
+}
 
 class AccountCreatedEvent {
 	public $spec; //HostAccountSpec
@@ -6287,9 +6373,11 @@ class DrsResourceConfigureFailedEvent {
 	}
 }
 
-class DrsResourceConfigureSyncedEvent {}
+class DrsResourceConfigureSyncedEvent {
+}
 
-class HostGetShortNameFailedEvent {}
+class HostGetShortNameFailedEvent {
+}
 
 class HostShortNameToIpFailedEvent {
 	public $shortName; //string
@@ -6299,7 +6387,8 @@ class HostShortNameToIpFailedEvent {
 	}
 }
 
-class HostIpToShortNameFailedEvent {}
+class HostIpToShortNameFailedEvent {
+}
 
 class HostPrimaryAgentNotShortNameEvent {
 	public $primaryAgent; //string
@@ -6309,7 +6398,8 @@ class HostPrimaryAgentNotShortNameEvent {
 	}
 }
 
-class HostNotInClusterEvent {}
+class HostNotInClusterEvent {
+}
 
 class HostIsolationIpPingFailedEvent {
 	public $isolationIp; //string
@@ -6329,11 +6419,14 @@ class HostIpInconsistentEvent {
 	}
 }
 
-class HostUserWorldSwapNotEnabledEvent {}
+class HostUserWorldSwapNotEnabledEvent {
+}
 
-class HostNonCompliantEvent {}
+class HostNonCompliantEvent {
+}
 
-class HostCompliantEvent {}
+class HostCompliantEvent {
+}
 
 class HostComplianceCheckedEvent {
 	public $profile; //ProfileEventArgument
@@ -6359,15 +6452,20 @@ class ProfileEvent {
 	}
 }
 
-class ProfileCreatedEvent {}
+class ProfileCreatedEvent {
+}
 
-class ProfileRemovedEvent {}
+class ProfileRemovedEvent {
+}
 
-class ProfileAssociatedEvent {}
+class ProfileAssociatedEvent {
+}
 
-class ProfileDissociatedEvent {}
+class ProfileDissociatedEvent {
+}
 
-class HostConfigAppliedEvent {}
+class HostConfigAppliedEvent {
+}
 
 class ProfileReferenceHostChangedEvent {
 	public $referenceHost; //ManagedObjectReference
@@ -6377,7 +6475,8 @@ class ProfileReferenceHostChangedEvent {
 	}
 }
 
-class ProfileChangedEvent {}
+class ProfileChangedEvent {
+}
 
 class HostProfileAppliedEvent {
 	public $profile; //ProfileEventArgument
@@ -6397,7 +6496,8 @@ class HostShortNameInconsistentEvent {
 	}
 }
 
-class HostNoRedundantManagementNetworkEvent {}
+class HostNoRedundantManagementNetworkEvent {
+}
 
 class HostNoAvailableNetworksEvent {
 	public $ips; //string
@@ -6415,7 +6515,8 @@ class HostExtraNetworksEvent {
 	}
 }
 
-class HostNoHAEnabledPortGroupsEvent {}
+class HostNoHAEnabledPortGroupsEvent {
+}
 
 class HostMissingNetworksEvent {
 	public $ips; //string
@@ -6475,29 +6576,41 @@ class VmEvent {
 	}
 }
 
-class VmPoweredOffEvent {}
+class VmPoweredOffEvent {
+}
 
-class VmPoweredOnEvent {}
+class VmPoweredOnEvent {
+}
 
-class VmSuspendedEvent {}
+class VmSuspendedEvent {
+}
 
-class VmStartingEvent {}
+class VmStartingEvent {
+}
 
-class VmStoppingEvent {}
+class VmStoppingEvent {
+}
 
-class VmSuspendingEvent {}
+class VmSuspendingEvent {
+}
 
-class VmResumingEvent {}
+class VmResumingEvent {
+}
 
-class VmDisconnectedEvent {}
+class VmDisconnectedEvent {
+}
 
-class VmRemoteConsoleConnectedEvent {}
+class VmRemoteConsoleConnectedEvent {
+}
 
-class VmRemoteConsoleDisconnectedEvent {}
+class VmRemoteConsoleDisconnectedEvent {
+}
 
-class VmDiscoveredEvent {}
+class VmDiscoveredEvent {
+}
 
-class VmOrphanedEvent {}
+class VmOrphanedEvent {
+}
 
 class VmBeingCreatedEvent {
 	public $configSpec; //VirtualMachineConfigSpec
@@ -6507,17 +6620,23 @@ class VmBeingCreatedEvent {
 	}
 }
 
-class VmCreatedEvent {}
+class VmCreatedEvent {
+}
 
-class VmStartRecordingEvent {}
+class VmStartRecordingEvent {
+}
 
-class VmEndRecordingEvent {}
+class VmEndRecordingEvent {
+}
 
-class VmStartReplayingEvent {}
+class VmStartReplayingEvent {
+}
 
-class VmEndReplayingEvent {}
+class VmEndReplayingEvent {
+}
 
-class VmRegisteredEvent {}
+class VmRegisteredEvent {
+}
 
 class VmAutoRenameEvent {
 	public $oldName; //string
@@ -6541,7 +6660,8 @@ class VmBeingHotMigratedEvent {
 	}
 }
 
-class VmResettingEvent {}
+class VmResettingEvent {
+}
 
 class VmStaticMacConflictEvent {
 	public $conflictedVm; //VmEventArgument
@@ -6677,15 +6797,20 @@ class VmUnsupportedStartingEvent {
 	}
 }
 
-class DrsVmMigratedEvent {}
+class DrsVmMigratedEvent {
+}
 
-class DrsVmPoweredOnEvent {}
+class DrsVmPoweredOnEvent {
+}
 
-class DrsRuleViolationEvent {}
+class DrsRuleViolationEvent {
+}
 
-class DrsRuleComplianceEvent {}
+class DrsRuleComplianceEvent {
+}
 
-class VmRelocateSpecEvent {}
+class VmRelocateSpecEvent {
+}
 
 class VmBeingRelocatedEvent {
 	public $destHost; //HostEventArgument
@@ -6725,9 +6850,11 @@ class VmRelocateFailedEvent {
 	}
 }
 
-class VmEmigratingEvent {}
+class VmEmigratingEvent {
+}
 
-class VmCloneEvent {}
+class VmCloneEvent {
+}
 
 class VmBeingClonedEvent {
 	public $destFolder; //FolderEventArgument
@@ -6773,7 +6900,8 @@ class VmClonedEvent {
 	}
 }
 
-class VmResourceReallocatedEvent {}
+class VmResourceReallocatedEvent {
+}
 
 class VmRenamedEvent {
 	public $oldName; //string
@@ -6785,7 +6913,8 @@ class VmRenamedEvent {
 	}
 }
 
-class VmDateRolledBackEvent {}
+class VmDateRolledBackEvent {
+}
 
 class VmNoNetworkAccessEvent {
 	public $destHost; //HostEventArgument
@@ -6861,13 +6990,17 @@ class VmFailedToStandbyGuestEvent {
 	}
 }
 
-class VmRemovedEvent {}
+class VmRemovedEvent {
+}
 
-class VmGuestShutdownEvent {}
+class VmGuestShutdownEvent {
+}
 
-class VmGuestRebootEvent {}
+class VmGuestRebootEvent {
+}
 
-class VmGuestStandbyEvent {}
+class VmGuestStandbyEvent {
+}
 
 class VmUpgradingEvent {
 	public $version; //string
@@ -6885,7 +7018,8 @@ class VmUpgradeCompleteEvent {
 	}
 }
 
-class VmUpgradeFailedEvent {}
+class VmUpgradeFailedEvent {
+}
 
 class VmRestartedOnAlternateHostEvent {
 	public $sourceHost; //HostEventArgument
@@ -6933,7 +7067,8 @@ class VmMessageErrorEvent {
 	}
 }
 
-class VmConfigMissingEvent {}
+class VmConfigMissingEvent {
+}
 
 class VmPowerOffOnIsolationEvent {
 	public $isolatedHost; //HostEventArgument
@@ -6969,11 +7104,14 @@ class VmDasBeingResetEvent {
 	}
 }
 
-class VmDasResetFailedEvent {}
+class VmDasResetFailedEvent {
+}
 
-class VmMaxRestartCountReached {}
+class VmMaxRestartCountReached {
+}
 
-class VmMaxFTRestartCountReached {}
+class VmMaxFTRestartCountReached {
+}
 
 class VmDasBeingResetWithScreenshotEvent {
 	public $screenshotFilePath; //string
@@ -6983,7 +7121,8 @@ class VmDasBeingResetWithScreenshotEvent {
 	}
 }
 
-class NotEnoughResourcesToStartVmEvent {}
+class NotEnoughResourcesToStartVmEvent {
+}
 
 class VmUuidAssignedEvent {
 	public $uuid; //string
@@ -7033,7 +7172,8 @@ class VmWwnConflictEvent {
 	}
 }
 
-class VmAcquiredMksTicketEvent {}
+class VmAcquiredMksTicketEvent {
+}
 
 class VmAcquiredTicketEvent {
 	public $ticketType; //string
@@ -7079,9 +7219,11 @@ class VmWwnChangedEvent {
 	}
 }
 
-class VmSecondaryAddedEvent {}
+class VmSecondaryAddedEvent {
+}
 
-class VmFaultToleranceTurnedOffEvent {}
+class VmFaultToleranceTurnedOffEvent {
+}
 
 class VmFaultToleranceStateChangedEvent {
 	public $oldState; //VirtualMachineFaultToleranceState
@@ -7093,7 +7235,8 @@ class VmFaultToleranceStateChangedEvent {
 	}
 }
 
-class VmSecondaryDisabledEvent {}
+class VmSecondaryDisabledEvent {
+}
 
 class VmSecondaryDisabledBySystemEvent {
 	public $reason; //LocalizedMethodFault
@@ -7103,13 +7246,17 @@ class VmSecondaryDisabledBySystemEvent {
 	}
 }
 
-class VmSecondaryEnabledEvent {}
+class VmSecondaryEnabledEvent {
+}
 
-class VmStartingSecondaryEvent {}
+class VmStartingSecondaryEvent {
+}
 
-class VmSecondaryStartedEvent {}
+class VmSecondaryStartedEvent {
+}
 
-class VmFailedUpdatingSecondaryConfig {}
+class VmFailedUpdatingSecondaryConfig {
+}
 
 class VmFailedStartingSecondaryEvent {
 	public $reason; //string
@@ -7127,7 +7274,8 @@ class VmTimedoutStartingSecondaryEvent {
 	}
 }
 
-class VmNoCompatibleHostForSecondaryEvent {}
+class VmNoCompatibleHostForSecondaryEvent {
+}
 
 class VmPrimaryFailoverEvent {
 	public $reason; //string
@@ -7159,9 +7307,11 @@ class HostWwnChangedEvent {
 	}
 }
 
-class HostAdminDisableEvent {}
+class HostAdminDisableEvent {
+}
 
-class HostAdminEnableEvent {}
+class HostAdminEnableEvent {
+}
 
 class HostEnableAdminFailedEvent {
 	public $permissions; //Permission
@@ -7171,7 +7321,8 @@ class HostEnableAdminFailedEvent {
 	}
 }
 
-class VmFailedRelayoutOnVmfs2DatastoreEvent {}
+class VmFailedRelayoutOnVmfs2DatastoreEvent {
+}
 
 class VmFailedRelayoutEvent {
 	public $reason; //LocalizedMethodFault
@@ -7181,11 +7332,14 @@ class VmFailedRelayoutEvent {
 	}
 }
 
-class VmRelayoutSuccessfulEvent {}
+class VmRelayoutSuccessfulEvent {
+}
 
-class VmRelayoutUpToDateEvent {}
+class VmRelayoutUpToDateEvent {
+}
 
-class VmConnectedEvent {}
+class VmConnectedEvent {
+}
 
 class VmPoweringOnWithCustomizedDVPortEvent {
 	public $vnic; //VnicPortArgument
@@ -7195,11 +7349,14 @@ class VmPoweringOnWithCustomizedDVPortEvent {
 	}
 }
 
-class VmDasUpdateErrorEvent {}
+class VmDasUpdateErrorEvent {
+}
 
-class NoMaintenanceModeDrsRecommendationForVM {}
+class NoMaintenanceModeDrsRecommendationForVM {
+}
 
-class VmDasUpdateOkEvent {}
+class VmDasUpdateOkEvent {
+}
 
 class ScheduledTaskEvent {
 	public $scheduledTask; //ScheduledTaskEventArgument
@@ -7211,15 +7368,20 @@ class ScheduledTaskEvent {
 	}
 }
 
-class ScheduledTaskCreatedEvent {}
+class ScheduledTaskCreatedEvent {
+}
 
-class ScheduledTaskStartedEvent {}
+class ScheduledTaskStartedEvent {
+}
 
-class ScheduledTaskRemovedEvent {}
+class ScheduledTaskRemovedEvent {
+}
 
-class ScheduledTaskReconfiguredEvent {}
+class ScheduledTaskReconfiguredEvent {
+}
 
-class ScheduledTaskCompletedEvent {}
+class ScheduledTaskCompletedEvent {
+}
 
 class ScheduledTaskFailedEvent {
 	public $reason; //LocalizedMethodFault
@@ -7387,7 +7549,8 @@ class AlarmClearedEvent {
 	}
 }
 
-class CustomFieldEvent {}
+class CustomFieldEvent {
+}
 
 class CustomFieldDefEvent {
 	public $fieldKey; //int
@@ -7399,9 +7562,11 @@ class CustomFieldDefEvent {
 	}
 }
 
-class CustomFieldDefAddedEvent {}
+class CustomFieldDefAddedEvent {
+}
 
-class CustomFieldDefRemovedEvent {}
+class CustomFieldDefRemovedEvent {
+}
 
 class CustomFieldDefRenamedEvent {
 	public $newName; //string
@@ -7425,7 +7590,8 @@ class CustomFieldValueChangedEvent {
 	}
 }
 
-class AuthorizationEvent {}
+class AuthorizationEvent {
+}
 
 class PermissionEvent {
 	public $entity; //ManagedEntityEventArgument
@@ -7459,7 +7625,8 @@ class PermissionUpdatedEvent {
 	}
 }
 
-class PermissionRemovedEvent {}
+class PermissionRemovedEvent {
+}
 
 class RoleEvent {
 	public $role; //RoleEventArgument
@@ -7485,7 +7652,8 @@ class RoleUpdatedEvent {
 	}
 }
 
-class RoleRemovedEvent {}
+class RoleRemovedEvent {
+}
 
 class DatastoreEvent {
 	public $datastore; //DatastoreEventArgument
@@ -7495,7 +7663,8 @@ class DatastoreEvent {
 	}
 }
 
-class DatastoreDestroyedEvent {}
+class DatastoreDestroyedEvent {
+}
 
 class DatastoreRenamedEvent {
 	public $oldName; //string
@@ -7517,7 +7686,8 @@ class DatastoreCapacityIncreasedEvent {
 	}
 }
 
-class DatastoreDuplicatedEvent {}
+class DatastoreDuplicatedEvent {
+}
 
 class DatastoreFileEvent {
 	public $targetFile; //string
@@ -7547,11 +7717,14 @@ class DatastoreFileMovedEvent {
 	}
 }
 
-class DatastoreFileDeletedEvent {}
+class DatastoreFileDeletedEvent {
+}
 
-class NonVIWorkloadDetectedOnDatastoreEvent {}
+class NonVIWorkloadDetectedOnDatastoreEvent {
+}
 
-class DatastoreIORMReconfiguredEvent {}
+class DatastoreIORMReconfiguredEvent {
+}
 
 class TaskEvent {
 	public $info; //TaskInfo
@@ -7561,9 +7734,11 @@ class TaskEvent {
 	}
 }
 
-class TaskTimeoutEvent {}
+class TaskTimeoutEvent {
+}
 
-class LicenseEvent {}
+class LicenseEvent {
+}
 
 class ServerLicenseExpiredEvent {
 	public $product; //string
@@ -7573,9 +7748,11 @@ class ServerLicenseExpiredEvent {
 	}
 }
 
-class HostLicenseExpiredEvent {}
+class HostLicenseExpiredEvent {
+}
 
-class VMotionLicenseExpiredEvent {}
+class VMotionLicenseExpiredEvent {
+}
 
 class NoLicenseEvent {
 	public $feature; //LicenseFeatureInfo
@@ -7625,9 +7802,11 @@ class HostInventoryFullEvent {
 	}
 }
 
-class LicenseRestrictedEvent {}
+class LicenseRestrictedEvent {
+}
 
-class IncorrectHostInformationEvent {}
+class IncorrectHostInformationEvent {
+}
 
 class UnlicensedVirtualMachinesEvent {
 	public $unlicensed; //int
@@ -7647,7 +7826,8 @@ class UnlicensedVirtualMachinesFoundEvent {
 	}
 }
 
-class AllVirtualMachinesLicensedEvent {}
+class AllVirtualMachinesLicensedEvent {
+}
 
 class LicenseNonComplianceEvent {
 	public $url; //string
@@ -7665,9 +7845,11 @@ class MigrationEvent {
 	}
 }
 
-class MigrationWarningEvent {}
+class MigrationWarningEvent {
+}
 
-class MigrationErrorEvent {}
+class MigrationErrorEvent {
+}
 
 class MigrationHostWarningEvent {
 	public $dstHost; //HostEventArgument
@@ -7705,15 +7887,20 @@ class MigrationResourceErrorEvent {
 	}
 }
 
-class ClusterEvent {}
+class ClusterEvent {
+}
 
-class DasEnabledEvent {}
+class DasEnabledEvent {
+}
 
-class DasDisabledEvent {}
+class DasDisabledEvent {
+}
 
-class DasAdmissionControlDisabledEvent {}
+class DasAdmissionControlDisabledEvent {
+}
 
-class DasAdmissionControlEnabledEvent {}
+class DasAdmissionControlEnabledEvent {
+}
 
 class DasHostFailedEvent {
 	public $failedHost; //HostEventArgument
@@ -7731,19 +7918,26 @@ class DasHostIsolatedEvent {
 	}
 }
 
-class DasClusterIsolatedEvent {}
+class DasClusterIsolatedEvent {
+}
 
-class DasAgentUnavailableEvent {}
+class DasAgentUnavailableEvent {
+}
 
-class DasAgentFoundEvent {}
+class DasAgentFoundEvent {
+}
 
-class InsufficientFailoverResourcesEvent {}
+class InsufficientFailoverResourcesEvent {
+}
 
-class FailoverLevelRestored {}
+class FailoverLevelRestored {
+}
 
-class ClusterOvercommittedEvent {}
+class ClusterOvercommittedEvent {
+}
 
-class HostOvercommittedEvent {}
+class HostOvercommittedEvent {
+}
 
 class ClusterStatusChangedEvent {
 	public $oldStatus; //string
@@ -7755,7 +7949,8 @@ class ClusterStatusChangedEvent {
 	}
 }
 
-class HostStatusChangedEvent {}
+class HostStatusChangedEvent {
+}
 
 class ClusterCreatedEvent {
 	public $parent; //FolderEventArgument
@@ -7765,7 +7960,8 @@ class ClusterCreatedEvent {
 	}
 }
 
-class ClusterDestroyedEvent {}
+class ClusterDestroyedEvent {
+}
 
 class DrsEnabledEvent {
 	public $behavior; //string
@@ -7775,9 +7971,11 @@ class DrsEnabledEvent {
 	}
 }
 
-class DrsDisabledEvent {}
+class DrsDisabledEvent {
+}
 
-class ClusterReconfiguredEvent {}
+class ClusterReconfiguredEvent {
+}
 
 class HostMonitoringStateChangedEvent {
 	public $state; //string
@@ -7811,7 +8009,8 @@ class ResourcePoolCreatedEvent {
 	}
 }
 
-class ResourcePoolDestroyedEvent {}
+class ResourcePoolDestroyedEvent {
+}
 
 class ResourcePoolMovedEvent {
 	public $oldParent; //ResourcePoolEventArgument
@@ -7823,9 +8022,11 @@ class ResourcePoolMovedEvent {
 	}
 }
 
-class ResourcePoolReconfiguredEvent {}
+class ResourcePoolReconfiguredEvent {
+}
 
-class ResourceViolatedEvent {}
+class ResourceViolatedEvent {
+}
 
 class VmResourcePoolMovedEvent {
 	public $oldParent; //ResourcePoolEventArgument
@@ -7845,7 +8046,8 @@ class TemplateUpgradeEvent {
 	}
 }
 
-class TemplateBeingUpgradedEvent {}
+class TemplateBeingUpgradedEvent {
+}
 
 class TemplateUpgradeFailedEvent {
 	public $reason; //LocalizedMethodFault
@@ -7855,7 +8057,8 @@ class TemplateUpgradeFailedEvent {
 	}
 }
 
-class TemplateUpgradedEvent {}
+class TemplateUpgradedEvent {
+}
 
 class CustomizationEvent {
 	public $logLocation; //string
@@ -7865,13 +8068,17 @@ class CustomizationEvent {
 	}
 }
 
-class CustomizationStartedEvent {}
+class CustomizationStartedEvent {
+}
 
-class CustomizationSucceeded {}
+class CustomizationSucceeded {
+}
 
-class CustomizationFailed {}
+class CustomizationFailed {
+}
 
-class CustomizationUnknownFailure {}
+class CustomizationUnknownFailure {
+}
 
 class CustomizationSysprepFailed {
 	public $sysprepVersion; //string
@@ -7883,9 +8090,11 @@ class CustomizationSysprepFailed {
 	}
 }
 
-class CustomizationLinuxIdentityFailed {}
+class CustomizationLinuxIdentityFailed {
+}
 
-class CustomizationNetworkSetupFailed {}
+class CustomizationNetworkSetupFailed {
+}
 
 class LockerMisconfiguredEvent {
 	public $datastore; //DatastoreEventArgument
@@ -7905,21 +8114,29 @@ class LockerReconfiguredEvent {
 	}
 }
 
-class NoDatastoresConfiguredEvent {}
+class NoDatastoresConfiguredEvent {
+}
 
-class AdminPasswordNotChangedEvent {}
+class AdminPasswordNotChangedEvent {
+}
 
-class HostInAuditModeEvent {}
+class HostInAuditModeEvent {
+}
 
-class LocalTSMEnabledEvent {}
+class LocalTSMEnabledEvent {
+}
 
-class RemoteTSMEnabledEvent {}
+class RemoteTSMEnabledEvent {
+}
 
-class VimAccountPasswordChangedEvent {}
+class VimAccountPasswordChangedEvent {
+}
 
-class IScsiBootFailureEvent {}
+class IScsiBootFailureEvent {
+}
 
-class DvsEvent {}
+class DvsEvent {
+}
 
 class DvsCreatedEvent {
 	public $parent; //FolderEventArgument
@@ -8171,7 +8388,8 @@ class DvsPortExitedPassthruEvent {
 	}
 }
 
-class DvsDestroyedEvent {}
+class DvsDestroyedEvent {
+}
 
 class DvsMergedEvent {
 	public $sourceDvs; //DvsEventArgument
@@ -8183,9 +8401,11 @@ class DvsMergedEvent {
 	}
 }
 
-class DVPortgroupEvent {}
+class DVPortgroupEvent {
+}
 
-class DVPortgroupCreatedEvent {}
+class DVPortgroupCreatedEvent {
+}
 
 class DVPortgroupRenamedEvent {
 	public $oldName; //string
@@ -8205,11 +8425,14 @@ class DVPortgroupReconfiguredEvent {
 	}
 }
 
-class DVPortgroupDestroyedEvent {}
+class DVPortgroupDestroyedEvent {
+}
 
-class DrsInvocationFailedEvent {}
+class DrsInvocationFailedEvent {
+}
 
-class DrsRecoveredFromFailureEvent {}
+class DrsRecoveredFromFailureEvent {
+}
 
 class VmReloadFromPathEvent {
 	public $configPath; //string
@@ -8227,7 +8450,8 @@ class VmReloadFromPathFailedEvent {
 	}
 }
 
-class EventArgument {}
+class EventArgument {
+}
 
 class RoleEventArgument {
 	public $roleId; //int
@@ -8593,9 +8817,11 @@ class ActiveDirectoryFault {
 	}
 }
 
-class AdminDisabled {}
+class AdminDisabled {
+}
 
-class AdminNotDisabled {}
+class AdminNotDisabled {
+}
 
 class AffinityConfigured {
 	public $configuredAffinity; //string
@@ -8641,7 +8867,8 @@ class AlreadyExists {
 	}
 }
 
-class AlreadyUpgraded {}
+class AlreadyUpgraded {
+}
 
 class AnswerFileUpdateFailure {
 	public $userInputPath; //ProfilePropertyPath
@@ -8669,21 +8896,29 @@ class AnswerFileUpdateFailed {
 	}
 }
 
-class ApplicationQuiesceFault {}
+class ApplicationQuiesceFault {
+}
 
-class AuthMinimumAdminPermission {}
+class AuthMinimumAdminPermission {
+}
 
-class BlockedByFirewall {}
+class BlockedByFirewall {
+}
 
-class CAMServerRefusedConnection {}
+class CAMServerRefusedConnection {
+}
 
-class CannotAccessFile {}
+class CannotAccessFile {
+}
 
-class CannotAccessLocalSource {}
+class CannotAccessLocalSource {
+}
 
-class CannotAccessNetwork {}
+class CannotAccessNetwork {
+}
 
-class CannotAccessVmComponent {}
+class CannotAccessVmComponent {
+}
 
 class CannotAccessVmConfig {
 	public $reason; //LocalizedMethodFault
@@ -8713,11 +8948,14 @@ class CannotAccessVmDisk {
 	}
 }
 
-class CannotAddHostWithFTVmAsStandalone {}
+class CannotAddHostWithFTVmAsStandalone {
+}
 
-class CannotAddHostWithFTVmToDifferentCluster {}
+class CannotAddHostWithFTVmToDifferentCluster {
+}
 
-class CannotAddHostWithFTVmToNonHACluster {}
+class CannotAddHostWithFTVmToNonHACluster {
+}
 
 class CannotChangeDrsBehaviorForFtSecondary {
 	public $vm; //ManagedObjectReference
@@ -8739,15 +8977,20 @@ class CannotChangeHaSettingsForFtSecondary {
 	}
 }
 
-class CannotCreateFile {}
+class CannotCreateFile {
+}
 
-class CannotDecryptPasswords {}
+class CannotDecryptPasswords {
+}
 
-class CannotDeleteFile {}
+class CannotDeleteFile {
+}
 
-class CannotDisableDrsOnClustersWithVApps {}
+class CannotDisableDrsOnClustersWithVApps {
+}
 
-class CannotDisableSnapshot {}
+class CannotDisableSnapshot {
+}
 
 class CannotDisconnectHostWithFaultToleranceVm {
 	public $hostName; //string
@@ -8757,7 +9000,8 @@ class CannotDisconnectHostWithFaultToleranceVm {
 	}
 }
 
-class CannotModifyConfigCpuRequirements {}
+class CannotModifyConfigCpuRequirements {
+}
 
 class CannotMoveFaultToleranceVm {
 	public $moveType; //string
@@ -8769,7 +9013,8 @@ class CannotMoveFaultToleranceVm {
 	}
 }
 
-class CannotMoveHostWithFaultToleranceVm {}
+class CannotMoveHostWithFaultToleranceVm {
+}
 
 class CannotMoveVmWithDeltaDisk {
 	public $device; //string
@@ -8779,7 +9024,8 @@ class CannotMoveVmWithDeltaDisk {
 	}
 }
 
-class CannotMoveVmWithNativeDeltaDisk {}
+class CannotMoveVmWithNativeDeltaDisk {
+}
 
 class CannotPowerOffVmInCluster {
 	public $operation; //string
@@ -8793,11 +9039,14 @@ class CannotPowerOffVmInCluster {
 	}
 }
 
-class ClockSkew {}
+class ClockSkew {
+}
 
-class CloneFromSnapshotNotSupported {}
+class CloneFromSnapshotNotSupported {
+}
 
-class ConcurrentAccess {}
+class ConcurrentAccess {
+}
 
 class ConnectedIso {
 	public $cdrom; //VirtualCdrom
@@ -8809,9 +9058,11 @@ class ConnectedIso {
 	}
 }
 
-class CpuCompatibilityUnknown {}
+class CpuCompatibilityUnknown {
+}
 
-class CpuHotPlugNotSupported {}
+class CpuHotPlugNotSupported {
+}
 
 class CpuIncompatible {
 	public $level; //int
@@ -8869,11 +9120,14 @@ class CpuIncompatible81EDX {
 	}
 }
 
-class CustomizationFault {}
+class CustomizationFault {
+}
 
-class CustomizationPending {}
+class CustomizationPending {
+}
 
-class DVPortNotSupported {}
+class DVPortNotSupported {
+}
 
 class DasConfigFault {
 	public $reason; //string
@@ -8887,7 +9141,8 @@ class DasConfigFault {
 	}
 }
 
-class DatabaseError {}
+class DatabaseError {
+}
 
 class DatacenterMismatchArgument {
 	public $entity; //ManagedObjectReference
@@ -8935,7 +9190,8 @@ class DeltaDiskFormatNotSupported {
 	}
 }
 
-class DestinationSwitchFull {}
+class DestinationSwitchFull {
+}
 
 class DeviceBackingNotSupported {
 	public $backing; //string
@@ -8953,9 +9209,11 @@ class DeviceControllerNotSupported {
 	}
 }
 
-class DeviceHotPlugNotSupported {}
+class DeviceHotPlugNotSupported {
+}
 
-class DeviceNotFound {}
+class DeviceNotFound {
+}
 
 class DeviceNotSupported {
 	public $device; //string
@@ -8967,7 +9225,8 @@ class DeviceNotSupported {
 	}
 }
 
-class DeviceUnsupportedForVmPlatform {}
+class DeviceUnsupportedForVmPlatform {
+}
 
 class DeviceUnsupportedForVmVersion {
 	public $currentVersion; //string
@@ -8979,9 +9238,11 @@ class DeviceUnsupportedForVmVersion {
 	}
 }
 
-class DirectoryNotEmpty {}
+class DirectoryNotEmpty {
+}
 
-class DisableAdminNotSupported {}
+class DisableAdminNotSupported {
+}
 
 class DisallowedChangeByService {
 	public $serviceName; //string
@@ -8993,7 +9254,8 @@ class DisallowedChangeByService {
 	}
 }
 
-class DisallowedDiskModeChange {}
+class DisallowedDiskModeChange {
+}
 
 class DisallowedMigrationDeviceAttached {
 	public $fault; //LocalizedMethodFault
@@ -9013,7 +9275,8 @@ class DisallowedOperationOnFailoverHost {
 	}
 }
 
-class DiskMoveTypeNotSupported {}
+class DiskMoveTypeNotSupported {
+}
 
 class DiskNotSupported {
 	public $disk; //int
@@ -9031,7 +9294,8 @@ class DomainNotFound {
 	}
 }
 
-class DrsDisabledOnVm {}
+class DrsDisabledOnVm {
+}
 
 class DrsVmotionIncompatibleFault {
 	public $host; //ManagedObjectReference
@@ -9051,7 +9315,8 @@ class DuplicateName {
 	}
 }
 
-class DvsFault {}
+class DvsFault {
+}
 
 class DvsNotAuthorized {
 	public $sessionExtensionKey; //string
@@ -9099,7 +9364,8 @@ class DvsScopeViolated {
 	}
 }
 
-class EVCAdmissionFailed {}
+class EVCAdmissionFailed {
+}
 
 class EVCAdmissionFailedCPUFeaturesForMode {
 	public $currentEVCModeKey; //string
@@ -9109,7 +9375,8 @@ class EVCAdmissionFailedCPUFeaturesForMode {
 	}
 }
 
-class EVCAdmissionFailedCPUModel {}
+class EVCAdmissionFailedCPUModel {
+}
 
 class EVCAdmissionFailedCPUModelForMode {
 	public $currentEVCModeKey; //string
@@ -9129,21 +9396,29 @@ class EVCAdmissionFailedCPUVendor {
 	}
 }
 
-class EVCAdmissionFailedCPUVendorUnknown {}
+class EVCAdmissionFailedCPUVendorUnknown {
+}
 
-class EVCAdmissionFailedHostDisconnected {}
+class EVCAdmissionFailedHostDisconnected {
+}
 
-class EVCAdmissionFailedHostSoftware {}
+class EVCAdmissionFailedHostSoftware {
+}
 
-class EVCAdmissionFailedHostSoftwareForMode {}
+class EVCAdmissionFailedHostSoftwareForMode {
+}
 
-class EVCAdmissionFailedVmActive {}
+class EVCAdmissionFailedVmActive {
+}
 
-class EightHostLimitViolated {}
+class EightHostLimitViolated {
+}
 
-class ExpiredAddonLicense {}
+class ExpiredAddonLicense {
+}
 
-class ExpiredEditionLicense {}
+class ExpiredEditionLicense {
+}
 
 class ExpiredFeatureLicense {
 	public $feature; //string
@@ -9267,7 +9542,8 @@ class FaultToleranceVmNotDasProtected {
 	}
 }
 
-class FcoeFault {}
+class FcoeFault {
+}
 
 class FcoeFaultPnicHasNoPortSet {
 	public $nicDevice; //string
@@ -9277,9 +9553,11 @@ class FcoeFaultPnicHasNoPortSet {
 	}
 }
 
-class FileAlreadyExists {}
+class FileAlreadyExists {
+}
 
-class FileBackedPortNotSupported {}
+class FileBackedPortNotSupported {
+}
 
 class FileFault {
 	public $file; //string
@@ -9289,13 +9567,17 @@ class FileFault {
 	}
 }
 
-class FileLocked {}
+class FileLocked {
+}
 
-class FileNameTooLong {}
+class FileNameTooLong {
+}
 
-class FileNotFound {}
+class FileNotFound {
+}
 
-class FileNotWritable {}
+class FileNotWritable {
+}
 
 class FileTooLarge {
 	public $datastore; //string
@@ -9309,7 +9591,8 @@ class FileTooLarge {
 	}
 }
 
-class FilesystemQuiesceFault {}
+class FilesystemQuiesceFault {
+}
 
 class FtIssuesOnHost {
 	public $host; //ManagedObjectReference
@@ -9323,7 +9606,8 @@ class FtIssuesOnHost {
 	}
 }
 
-class FullStorageVMotionNotSupported {}
+class FullStorageVMotionNotSupported {
+}
 
 class GenericDrsFault {
 	public $hostFaults; //LocalizedMethodFault
@@ -9351,13 +9635,17 @@ class GuestAuthenticationChallenge {
 	}
 }
 
-class GuestComponentsOutOfDate {}
+class GuestComponentsOutOfDate {
+}
 
-class GuestOperationsFault {}
+class GuestOperationsFault {
+}
 
-class GuestOperationsUnavailable {}
+class GuestOperationsUnavailable {
+}
 
-class GuestPermissionDenied {}
+class GuestPermissionDenied {
+}
 
 class GuestProcessNotFound {
 	public $pid; //long
@@ -9367,7 +9655,8 @@ class GuestProcessNotFound {
 	}
 }
 
-class HAErrorsAtDest {}
+class HAErrorsAtDest {
+}
 
 class HostAccessRestrictedToManagementServer {
 	public $managementServer; //string
@@ -9385,11 +9674,14 @@ class HostConfigFailed {
 	}
 }
 
-class HostConfigFault {}
+class HostConfigFault {
+}
 
-class HostConnectFault {}
+class HostConnectFault {
+}
 
-class HostInDomain {}
+class HostInDomain {
+}
 
 class HostIncompatibleForFaultTolerance {
 	public $hostName; //string
@@ -9419,11 +9711,14 @@ class HostInventoryFull {
 	}
 }
 
-class HostPowerOpFailed {}
+class HostPowerOpFailed {
+}
 
-class HotSnapshotMoveNotSupported {}
+class HotSnapshotMoveNotSupported {
+}
 
-class IDEDiskNotSupported {}
+class IDEDiskNotSupported {
+}
 
 class IORMNotSupportedHostOnDatastore {
 	public $datastore; //ManagedObjectReference
@@ -9437,7 +9732,8 @@ class IORMNotSupportedHostOnDatastore {
 	}
 }
 
-class InUseFeatureManipulationDisallowed {}
+class InUseFeatureManipulationDisallowed {
+}
 
 class InaccessibleDatastore {
 	public $detail; //string
@@ -9473,11 +9769,14 @@ class IncompatibleSetting {
 	}
 }
 
-class IncorrectFileType {}
+class IncorrectFileType {
+}
 
-class IncorrectHostInformation {}
+class IncorrectHostInformation {
+}
 
-class IndependentDiskVMotionNotSupported {}
+class IndependentDiskVMotionNotSupported {
+}
 
 class InsufficientAgentVmsDeployed {
 	public $hostName; //string
@@ -9501,7 +9800,8 @@ class InsufficientCpuResourcesFault {
 	}
 }
 
-class InsufficientFailoverResourcesFault {}
+class InsufficientFailoverResourcesFault {
+}
 
 class InsufficientHostCapacityFault {
 	public $host; //ManagedObjectReference
@@ -9541,9 +9841,11 @@ class InsufficientMemoryResourcesFault {
 	}
 }
 
-class InsufficientPerCpuCapacity {}
+class InsufficientPerCpuCapacity {
+}
 
-class InsufficientResourcesFault {}
+class InsufficientResourcesFault {
+}
 
 class InsufficientStandbyCpuResource {
 	public $available; //long
@@ -9565,17 +9867,23 @@ class InsufficientStandbyMemoryResource {
 	}
 }
 
-class InsufficientStandbyResource {}
+class InsufficientStandbyResource {
+}
 
-class InsufficientStorageSpace {}
+class InsufficientStorageSpace {
+}
 
-class InvalidAffinitySettingFault {}
+class InvalidAffinitySettingFault {
+}
 
-class InvalidBmcRole {}
+class InvalidBmcRole {
+}
 
-class InvalidBundle {}
+class InvalidBundle {
+}
 
-class InvalidCAMCertificate {}
+class InvalidCAMCertificate {
+}
 
 class InvalidCAMServer {
 	public $camServer; //string
@@ -9585,7 +9893,8 @@ class InvalidCAMServer {
 	}
 }
 
-class InvalidClientCertificate {}
+class InvalidClientCertificate {
+}
 
 class InvalidController {
 	public $controllerKey; //int
@@ -9631,7 +9940,8 @@ class InvalidDatastoreState {
 	}
 }
 
-class InvalidDeviceBacking {}
+class InvalidDeviceBacking {
+}
 
 class InvalidDeviceOperation {
 	public $badOp; //VirtualDeviceConfigSpecOperation
@@ -9651,7 +9961,8 @@ class InvalidDeviceSpec {
 	}
 }
 
-class InvalidDiskFormat {}
+class InvalidDiskFormat {
+}
 
 class InvalidDrsBehaviorForFtVm {
 	public $vm; //ManagedObjectReference
@@ -9671,7 +9982,8 @@ class InvalidEditionLicense {
 	}
 }
 
-class InvalidEvent {}
+class InvalidEvent {
+}
 
 class InvalidFolder {
 	public $target; //ManagedObjectReference
@@ -9681,11 +9993,14 @@ class InvalidFolder {
 	}
 }
 
-class InvalidFormat {}
+class InvalidFormat {
+}
 
-class InvalidGuestLogin {}
+class InvalidGuestLogin {
+}
 
-class InvalidHostName {}
+class InvalidHostName {
+}
 
 class InvalidHostState {
 	public $host; //ManagedObjectReference
@@ -9703,7 +10018,8 @@ class InvalidIndexArgument {
 	}
 }
 
-class InvalidIpmiLoginInfo {}
+class InvalidIpmiLoginInfo {
+}
 
 class InvalidIpmiMacAddress {
 	public $userProvidedMacAddress; //string
@@ -9723,9 +10039,11 @@ class InvalidLicense {
 	}
 }
 
-class InvalidLocale {}
+class InvalidLocale {
+}
 
-class InvalidLogin {}
+class InvalidLogin {
+}
 
 class InvalidName {
 	public $name; //string
@@ -9745,7 +10063,8 @@ class InvalidNasCredentials {
 	}
 }
 
-class InvalidNetworkInType {}
+class InvalidNetworkInType {
+}
 
 class InvalidNetworkResource {
 	public $remoteHost; //string
@@ -9795,15 +10114,20 @@ class InvalidProfileReferenceHost {
 	}
 }
 
-class InvalidPropertyType {}
+class InvalidPropertyType {
+}
 
-class InvalidPropertyValue {}
+class InvalidPropertyValue {
+}
 
-class InvalidResourcePoolStructureFault {}
+class InvalidResourcePoolStructureFault {
+}
 
-class InvalidSnapshotFormat {}
+class InvalidSnapshotFormat {
+}
 
-class InvalidState {}
+class InvalidState {
+}
 
 class InvalidVmConfig {
 	public $property; //string
@@ -9821,9 +10145,11 @@ class InventoryHasStandardAloneHosts {
 	}
 }
 
-class IpHostnameGeneratorError {}
+class IpHostnameGeneratorError {
+}
 
-class IscsiFault {}
+class IscsiFault {
+}
 
 class IscsiFaultInvalidVnic {
 	public $vnicDevice; //string
@@ -9933,7 +10259,8 @@ class LargeRDMNotSupportedOnDatastore {
 	}
 }
 
-class LegacyNetworkInterfaceInUse {}
+class LegacyNetworkInterfaceInUse {
+}
 
 class LicenseAssignmentFailed {
 	public $reason; //string
@@ -9971,9 +10298,11 @@ class LicenseExpired {
 	}
 }
 
-class LicenseKeyEntityMismatch {}
+class LicenseKeyEntityMismatch {
+}
 
-class LicenseRestricted {}
+class LicenseRestricted {
+}
 
 class LicenseServerUnavailable {
 	public $licenseServer; //string
@@ -10001,13 +10330,17 @@ class LimitExceeded {
 	}
 }
 
-class LinuxVolumeNotClean {}
+class LinuxVolumeNotClean {
+}
 
-class LogBundlingFailed {}
+class LogBundlingFailed {
+}
 
-class MaintenanceModeFileMove {}
+class MaintenanceModeFileMove {
+}
 
-class MemoryHotPlugNotSupported {}
+class MemoryHotPlugNotSupported {
+}
 
 class MemorySizeNotRecommended {
 	public $memorySizeMB; //int
@@ -10045,7 +10378,8 @@ class MemorySizeNotSupportedByDatastore {
 	}
 }
 
-class MemorySnapshotOnIndependentDisk {}
+class MemorySnapshotOnIndependentDisk {
+}
 
 class MethodAlreadyDisabledFault {
 	public $sourceId; //string
@@ -10063,9 +10397,11 @@ class MethodDisabled {
 	}
 }
 
-class MigrationDisabled {}
+class MigrationDisabled {
+}
 
-class MigrationFault {}
+class MigrationFault {
+}
 
 class MigrationFeatureNotSupported {
 	public $atSourceHost; //boolean
@@ -10123,21 +10459,29 @@ class MismatchedVMotionNetworkNames {
 	}
 }
 
-class MissingBmcSupport {}
+class MissingBmcSupport {
+}
 
-class MissingController {}
+class MissingController {
+}
 
-class MissingIpPool {}
+class MissingIpPool {
+}
 
-class MissingLinuxCustResources {}
+class MissingLinuxCustResources {
+}
 
-class MissingNetworkIpConfig {}
+class MissingNetworkIpConfig {
+}
 
-class MissingPowerOffConfiguration {}
+class MissingPowerOffConfiguration {
+}
 
-class MissingPowerOnConfiguration {}
+class MissingPowerOnConfiguration {
+}
 
-class MissingWindowsCustResources {}
+class MissingWindowsCustResources {
+}
 
 class MksConnectionLimitReached {
 	public $connectionLimit; //int
@@ -10183,7 +10527,8 @@ class MultipleCertificatesVerifyFault {
 	}
 }
 
-class MultipleSnapshotsNotSupported {}
+class MultipleSnapshotsNotSupported {
+}
 
 class NasConfigFault {
 	public $name; //string
@@ -10225,9 +10570,11 @@ class NasVolumeNotMounted {
 	}
 }
 
-class NetworkCopyFault {}
+class NetworkCopyFault {
+}
 
-class NetworkInaccessible {}
+class NetworkInaccessible {
+}
 
 class NetworksMayNotBeTheSame {
 	public $name; //string
@@ -10263,9 +10610,11 @@ class NoAvailableIp {
 	}
 }
 
-class NoClientCertificate {}
+class NoClientCertificate {
+}
 
-class NoCompatibleDatastore {}
+class NoCompatibleDatastore {
+}
 
 class NoCompatibleHardAffinityHost {
 	public $vmName; //string
@@ -10285,7 +10634,8 @@ class NoCompatibleHost {
 	}
 }
 
-class NoCompatibleHostWithAccessToDevice {}
+class NoCompatibleHostWithAccessToDevice {
+}
 
 class NoCompatibleSoftAffinityHost {
 	public $vmName; //string
@@ -10295,9 +10645,11 @@ class NoCompatibleSoftAffinityHost {
 	}
 }
 
-class NoConnectedDatastore {}
+class NoConnectedDatastore {
+}
 
-class NoDiskFound {}
+class NoDiskFound {
+}
 
 class NoDiskSpace {
 	public $datastore; //string
@@ -10307,11 +10659,14 @@ class NoDiskSpace {
 	}
 }
 
-class NoDisksToCustomize {}
+class NoDisksToCustomize {
+}
 
-class NoGateway {}
+class NoGateway {
+}
 
-class NoGuestHeartbeat {}
+class NoGuestHeartbeat {
+}
 
 class NoHost {
 	public $name; //string
@@ -10331,9 +10686,11 @@ class NoHostSuitableForFtSecondary {
 	}
 }
 
-class NoLicenseServerConfigured {}
+class NoLicenseServerConfigured {
+}
 
-class NoPeerHostFound {}
+class NoPeerHostFound {
+}
 
 class NoPermission {
 	public $object; //ManagedObjectReference
@@ -10345,9 +10702,11 @@ class NoPermission {
 	}
 }
 
-class NoPermissionOnAD {}
+class NoPermissionOnAD {
+}
 
-class NoPermissionOnHost {}
+class NoPermissionOnHost {
+}
 
 class NoPermissionOnNasVolume {
 	public $userName; //string
@@ -10357,15 +10716,20 @@ class NoPermissionOnNasVolume {
 	}
 }
 
-class NoSubjectName {}
+class NoSubjectName {
+}
 
-class NoVcManagedIpConfigured {}
+class NoVcManagedIpConfigured {
+}
 
-class NoVirtualNic {}
+class NoVirtualNic {
+}
 
-class NoVmInVApp {}
+class NoVmInVApp {
+}
 
-class NonADUserRequired {}
+class NonADUserRequired {
+}
 
 class NonHomeRDMVMotionNotSupported {
 	public $device; //string
@@ -10375,13 +10739,17 @@ class NonHomeRDMVMotionNotSupported {
 	}
 }
 
-class NonPersistentDisksNotSupported {}
+class NonPersistentDisksNotSupported {
+}
 
-class NotADirectory {}
+class NotADirectory {
+}
 
-class NotAFile {}
+class NotAFile {
+}
 
-class NotAuthenticated {}
+class NotAuthenticated {
+}
 
 class NotEnoughCpus {
 	public $numCpuDest; //int
@@ -10401,7 +10769,8 @@ class NotEnoughLogicalCpus {
 	}
 }
 
-class NotFound {}
+class NotFound {
+}
 
 class NotSupportedDeviceForFT {
 	public $host; //ManagedObjectReference
@@ -10431,7 +10800,8 @@ class NotSupportedHost {
 	}
 }
 
-class NotSupportedHostInCluster {}
+class NotSupportedHostInCluster {
+}
 
 class NotSupportedHostInDvs {
 	public $switchProductSpec; //DistributedVirtualSwitchProductSpec
@@ -10451,7 +10821,8 @@ class NotSupportedHostInHACluster {
 	}
 }
 
-class NotUserConfigurableProperty {}
+class NotUserConfigurableProperty {
+}
 
 class NumVirtualCoresPerSocketNotSupported {
 	public $maxSupportedCoresPerSocketDest; //int
@@ -10491,11 +10862,14 @@ class NumVirtualCpusNotSupported {
 	}
 }
 
-class OperationDisabledByGuest {}
+class OperationDisabledByGuest {
+}
 
-class OperationDisallowedOnHost {}
+class OperationDisallowedOnHost {
+}
 
-class OperationNotSupportedByGuest {}
+class OperationNotSupportedByGuest {
+}
 
 class OutOfBounds {
 	public $argumentName; //string
@@ -10515,7 +10889,8 @@ class OvfAttribute {
 	}
 }
 
-class OvfConnectedDevice {}
+class OvfConnectedDevice {
+}
 
 class OvfConnectedDeviceFloppy {
 	public $filename; //string
@@ -10635,7 +11010,8 @@ class OvfCpuCompatibility {
 	}
 }
 
-class OvfCpuCompatibilityCheckNotSupported {}
+class OvfCpuCompatibilityCheckNotSupported {
+}
 
 class OvfDiskMappingNotFound {
 	public $diskName; //string
@@ -10647,9 +11023,11 @@ class OvfDiskMappingNotFound {
 	}
 }
 
-class OvfDiskOrderConstraint {}
+class OvfDiskOrderConstraint {
+}
 
-class OvfDuplicateElement {}
+class OvfDuplicateElement {
+}
 
 class OvfDuplicatedElementBoundary {
 	public $boundary; //string
@@ -10667,7 +11045,8 @@ class OvfDuplicatedPropertyIdExport {
 	}
 }
 
-class OvfDuplicatedPropertyIdImport {}
+class OvfDuplicatedPropertyIdImport {
+}
 
 class OvfElement {
 	public $name; //string
@@ -10685,13 +11064,17 @@ class OvfElementInvalidValue {
 	}
 }
 
-class OvfExport {}
+class OvfExport {
+}
 
-class OvfExportFailed {}
+class OvfExportFailed {
+}
 
-class OvfFault {}
+class OvfFault {
+}
 
-class OvfHardwareCheck {}
+class OvfHardwareCheck {
+}
 
 class OvfHardwareExport {
 	public $device; //VirtualDevice
@@ -10721,11 +11104,14 @@ class OvfHostValueNotParsed {
 	}
 }
 
-class OvfImport {}
+class OvfImport {
+}
 
-class OvfImportFailed {}
+class OvfImportFailed {
+}
 
-class OvfInternalError {}
+class OvfInternalError {
+}
 
 class OvfInvalidPackage {
 	public $lineNumber; //int
@@ -10743,13 +11129,17 @@ class OvfInvalidValue {
 	}
 }
 
-class OvfInvalidValueConfiguration {}
+class OvfInvalidValueConfiguration {
+}
 
-class OvfInvalidValueEmpty {}
+class OvfInvalidValueEmpty {
+}
 
-class OvfInvalidValueFormatMalformed {}
+class OvfInvalidValueFormatMalformed {
+}
 
-class OvfInvalidValueReference {}
+class OvfInvalidValueReference {
+}
 
 class OvfInvalidVmName {
 	public $name; //string
@@ -10771,9 +11161,11 @@ class OvfMappedOsId {
 	}
 }
 
-class OvfMissingAttribute {}
+class OvfMissingAttribute {
+}
 
-class OvfMissingElement {}
+class OvfMissingElement {
+}
 
 class OvfMissingElementNormalBoundary {
 	public $boundary; //string
@@ -10793,7 +11185,8 @@ class OvfMissingHardware {
 	}
 }
 
-class OvfNoHostNic {}
+class OvfNoHostNic {
+}
 
 class OvfNoSpaceOnController {
 	public $parent; //string
@@ -10831,7 +11224,8 @@ class OvfPropertyExport {
 	}
 }
 
-class OvfPropertyNetwork {}
+class OvfPropertyNetwork {
+}
 
 class OvfPropertyNetworkExport {
 	public $network; //string
@@ -10865,11 +11259,14 @@ class OvfPropertyQualifierIgnored {
 	}
 }
 
-class OvfPropertyType {}
+class OvfPropertyType {
+}
 
-class OvfPropertyValue {}
+class OvfPropertyValue {
+}
 
-class OvfSystemFault {}
+class OvfSystemFault {
+}
 
 class OvfToXmlUnsupportedElement {
 	public $name; //string
@@ -10887,7 +11284,8 @@ class OvfUnableToExportDisk {
 	}
 }
 
-class OvfUnexpectedElement {}
+class OvfUnexpectedElement {
+}
 
 class OvfUnknownDevice {
 	public $device; //VirtualDevice
@@ -10961,7 +11359,8 @@ class OvfUnsupportedDeviceBackingOption {
 	}
 }
 
-class OvfUnsupportedDeviceExport {}
+class OvfUnsupportedDeviceExport {
+}
 
 class OvfUnsupportedDiskProvisioning {
 	public $diskProvisioning; //string
@@ -11031,7 +11430,8 @@ class OvfUnsupportedType {
 	}
 }
 
-class OvfWrongElement {}
+class OvfWrongElement {
+}
 
 class OvfWrongNamespace {
 	public $namespaceName; //string
@@ -11049,7 +11449,8 @@ class OvfXmlFormat {
 	}
 }
 
-class PatchAlreadyInstalled {}
+class PatchAlreadyInstalled {
+}
 
 class PatchBinariesNotFound {
 	public $patchID; //string
@@ -11069,9 +11470,11 @@ class PatchInstallFailed {
 	}
 }
 
-class PatchIntegrityError {}
+class PatchIntegrityError {
+}
 
-class PatchMetadataCorrupted {}
+class PatchMetadataCorrupted {
+}
 
 class PatchMetadataInvalid {
 	public $patchID; //string
@@ -11083,7 +11486,8 @@ class PatchMetadataInvalid {
 	}
 }
 
-class PatchMetadataNotFound {}
+class PatchMetadataNotFound {
+}
 
 class PatchMissingDependencies {
 	public $prerequisitePatch; //string
@@ -11111,7 +11515,8 @@ class PatchSuperseded {
 	}
 }
 
-class PhysCompatRDMNotSupported {}
+class PhysCompatRDMNotSupported {
+}
 
 class PlatformConfigFault {
 	public $text; //string
@@ -11213,7 +11618,8 @@ class RDMNotPreserved {
 	}
 }
 
-class RDMNotSupported {}
+class RDMNotSupported {
+}
 
 class RDMNotSupportedOnDatastore {
 	public $device; //string
@@ -11227,11 +11633,14 @@ class RDMNotSupportedOnDatastore {
 	}
 }
 
-class RDMPointsToInaccessibleDisk {}
+class RDMPointsToInaccessibleDisk {
+}
 
-class RawDiskNotSupported {}
+class RawDiskNotSupported {
+}
 
-class ReadHostResourcePoolTreeFailed {}
+class ReadHostResourcePoolTreeFailed {
+}
 
 class ReadOnlyDisksWithLegacyDestination {
 	public $roDiskCount; //int
@@ -11251,13 +11660,17 @@ class RebootRequired {
 	}
 }
 
-class RecordReplayDisabled {}
+class RecordReplayDisabled {
+}
 
-class RemoteDeviceNotSupported {}
+class RemoteDeviceNotSupported {
+}
 
-class RemoveFailed {}
+class RemoveFailed {
+}
 
-class ReplicationConfigFault {}
+class ReplicationConfigFault {
+}
 
 class ReplicationDiskConfigFault {
 	public $reason; //string
@@ -11271,9 +11684,11 @@ class ReplicationDiskConfigFault {
 	}
 }
 
-class ReplicationFault {}
+class ReplicationFault {
+}
 
-class ReplicationIncompatibleWithFT {}
+class ReplicationIncompatibleWithFT {
+}
 
 class ReplicationInvalidOptions {
 	public $options; //string
@@ -11285,7 +11700,8 @@ class ReplicationInvalidOptions {
 	}
 }
 
-class ReplicationNotSupportedOnHost {}
+class ReplicationNotSupportedOnHost {
+}
 
 class ReplicationVmConfigFault {
 	public $reason; //string
@@ -11333,7 +11749,8 @@ class ResourceNotAvailable {
 	}
 }
 
-class RestrictedVersion {}
+class RestrictedVersion {
+}
 
 class RuleViolation {
 	public $host; //ManagedObjectReference
@@ -11345,7 +11762,8 @@ class RuleViolation {
 	}
 }
 
-class SSLDisabledFault {}
+class SSLDisabledFault {
+}
 
 class SSLVerifyFault {
 	public $selfSigned; //boolean
@@ -11397,15 +11815,20 @@ class SecondaryVmNotRegistered {
 	}
 }
 
-class SharedBusControllerNotSupported {}
+class SharedBusControllerNotSupported {
+}
 
-class SnapshotCloneNotSupported {}
+class SnapshotCloneNotSupported {
+}
 
-class SnapshotCopyNotSupported {}
+class SnapshotCopyNotSupported {
+}
 
-class SnapshotDisabled {}
+class SnapshotDisabled {
+}
 
-class SnapshotFault {}
+class SnapshotFault {
+}
 
 class SnapshotIncompatibleDeviceInVm {
 	public $fault; //LocalizedMethodFault
@@ -11415,15 +11838,20 @@ class SnapshotIncompatibleDeviceInVm {
 	}
 }
 
-class SnapshotLocked {}
+class SnapshotLocked {
+}
 
-class SnapshotMoveFromNonHomeNotSupported {}
+class SnapshotMoveFromNonHomeNotSupported {
+}
 
-class SnapshotMoveNotSupported {}
+class SnapshotMoveNotSupported {
+}
 
-class SnapshotMoveToNonHomeNotSupported {}
+class SnapshotMoveToNonHomeNotSupported {
+}
 
-class SnapshotNoChange {}
+class SnapshotNoChange {
+}
 
 class SnapshotRevertIssue {
 	public $snapshotName; //string
@@ -11453,11 +11881,14 @@ class SoftRuleVioCorrectionImpact {
 	}
 }
 
-class StorageDrsDisabledOnVm {}
+class StorageDrsDisabledOnVm {
+}
 
-class StorageDrsIolbDisabledInternally {}
+class StorageDrsIolbDisabledInternally {
+}
 
-class StorageVMotionNotSupported {}
+class StorageVMotionNotSupported {
+}
 
 class StorageVmotionIncompatible {
 	public $datastore; //ManagedObjectReference
@@ -11467,15 +11898,20 @@ class StorageVmotionIncompatible {
 	}
 }
 
-class SuspendedRelocateNotSupported {}
+class SuspendedRelocateNotSupported {
+}
 
-class SwapDatastoreNotWritableOnHost {}
+class SwapDatastoreNotWritableOnHost {
+}
 
-class SwapDatastoreUnset {}
+class SwapDatastoreUnset {
+}
 
-class SwapPlacementOverrideNotSupported {}
+class SwapPlacementOverrideNotSupported {
+}
 
-class SwitchNotInUpgradeMode {}
+class SwitchNotInUpgradeMode {
+}
 
 class TaskInProgress {
 	public $task; //ManagedObjectReference
@@ -11497,13 +11933,17 @@ class ThirdPartyLicenseAssignmentFailed {
 	}
 }
 
-class Timedout {}
+class Timedout {
+}
 
-class TooManyConcurrentNativeClones {}
+class TooManyConcurrentNativeClones {
+}
 
-class TooManyConsecutiveOverrides {}
+class TooManyConsecutiveOverrides {
+}
 
-class TooManyDevices {}
+class TooManyDevices {
+}
 
 class TooManyDisksOnLegacyHost {
 	public $diskCount; //int
@@ -11515,33 +11955,47 @@ class TooManyDisksOnLegacyHost {
 	}
 }
 
-class TooManyGuestLogons {}
+class TooManyGuestLogons {
+}
 
-class TooManyHosts {}
+class TooManyHosts {
+}
 
-class TooManyNativeCloneLevels {}
+class TooManyNativeCloneLevels {
+}
 
-class TooManyNativeClonesOnFile {}
+class TooManyNativeClonesOnFile {
+}
 
-class TooManySnapshotLevels {}
+class TooManySnapshotLevels {
+}
 
-class ToolsAlreadyUpgraded {}
+class ToolsAlreadyUpgraded {
+}
 
-class ToolsAutoUpgradeNotSupported {}
+class ToolsAutoUpgradeNotSupported {
+}
 
-class ToolsImageNotAvailable {}
+class ToolsImageNotAvailable {
+}
 
-class ToolsImageSignatureCheckFailed {}
+class ToolsImageSignatureCheckFailed {
+}
 
-class ToolsInstallationInProgress {}
+class ToolsInstallationInProgress {
+}
 
-class ToolsUnavailable {}
+class ToolsUnavailable {
+}
 
-class ToolsUpgradeCancelled {}
+class ToolsUpgradeCancelled {
+}
 
-class UncommittedUndoableDisk {}
+class UncommittedUndoableDisk {
+}
 
-class UnconfiguredPropertyValue {}
+class UnconfiguredPropertyValue {
+}
 
 class UncustomizableGuest {
 	public $uncustomizableGuestOS; //string
@@ -11551,7 +12005,8 @@ class UncustomizableGuest {
 	}
 }
 
-class UnexpectedCustomizationFault {}
+class UnexpectedCustomizationFault {
+}
 
 class UnrecognizedHost {
 	public $hostName; //string
@@ -11561,7 +12016,8 @@ class UnrecognizedHost {
 	}
 }
 
-class UnsharedSwapVMotionNotSupported {}
+class UnsharedSwapVMotionNotSupported {
+}
 
 class UnsupportedDatastore {
 	public $datastore; //ManagedObjectReference
@@ -11587,9 +12043,11 @@ class UnsupportedVimApiVersion {
 	}
 }
 
-class UnsupportedVmxLocation {}
+class UnsupportedVmxLocation {
+}
 
-class UnusedVirtualDiskBlocksNotScrubbed {}
+class UnusedVirtualDiskBlocksNotScrubbed {
+}
 
 class UserNotFound {
 	public $principal; //string
@@ -11601,11 +12059,14 @@ class UserNotFound {
 	}
 }
 
-class VAppConfigFault {}
+class VAppConfigFault {
+}
 
-class VAppNotRunning {}
+class VAppNotRunning {
+}
 
-class VAppOperationInProgress {}
+class VAppOperationInProgress {
+}
 
 class VAppPropertyFault {
 	public $id; //string
@@ -11623,13 +12084,17 @@ class VAppPropertyFault {
 	}
 }
 
-class VAppTaskInProgress {}
+class VAppTaskInProgress {
+}
 
-class VMINotSupported {}
+class VMINotSupported {
+}
 
-class VMOnConflictDVPort {}
+class VMOnConflictDVPort {
+}
 
-class VMOnVirtualIntranet {}
+class VMOnVirtualIntranet {
+}
 
 class VMotionInterfaceIssue {
 	public $atSourceHost; //boolean
@@ -11659,17 +12124,23 @@ class VMotionLinkDown {
 	}
 }
 
-class VMotionNotConfigured {}
+class VMotionNotConfigured {
+}
 
-class VMotionNotLicensed {}
+class VMotionNotLicensed {
+}
 
-class VMotionNotSupported {}
+class VMotionNotSupported {
+}
 
-class VMotionProtocolIncompatible {}
+class VMotionProtocolIncompatible {
+}
 
-class VimFault {}
+class VimFault {
+}
 
-class VirtualDiskBlocksNotFullyProvisioned {}
+class VirtualDiskBlocksNotFullyProvisioned {
+}
 
 class VirtualDiskModeNotSupported {
 	public $mode; //string
@@ -11679,9 +12150,11 @@ class VirtualDiskModeNotSupported {
 	}
 }
 
-class VirtualEthernetCardNotSupported {}
+class VirtualEthernetCardNotSupported {
+}
 
-class VirtualHardwareCompatibilityIssue {}
+class VirtualHardwareCompatibilityIssue {
+}
 
 class VirtualHardwareVersionNotSupported {
 	public $hostName; //string
@@ -11705,7 +12178,8 @@ class VmAlreadyExistsInDatacenter {
 	}
 }
 
-class VmConfigFault {}
+class VmConfigFault {
+}
 
 class VmConfigIncompatibleForFaultTolerance {
 	public $fault; //LocalizedMethodFault
@@ -11757,7 +12231,8 @@ class VmFaultToleranceInvalidFileBacking {
 	}
 }
 
-class VmFaultToleranceIssue {}
+class VmFaultToleranceIssue {
+}
 
 class VmFaultToleranceOpIssuesList {
 	public $errors; //LocalizedMethodFault
@@ -11797,11 +12272,14 @@ class VmLimitLicense {
 	}
 }
 
-class VmMonitorIncompatibleForFaultTolerance {}
+class VmMonitorIncompatibleForFaultTolerance {
+}
 
-class VmPowerOnDisabled {}
+class VmPowerOnDisabled {
+}
 
-class VmToolsUpgradeFault {}
+class VmToolsUpgradeFault {
+}
 
 class VmValidateMaxDevice {
 	public $device; //string
@@ -11829,9 +12307,11 @@ class VmWwnConflict {
 	}
 }
 
-class VmfsAlreadyMounted {}
+class VmfsAlreadyMounted {
+}
 
-class VmfsAmbiguousMount {}
+class VmfsAmbiguousMount {
+}
 
 class VmfsMountFault {
 	public $uuid; //string
@@ -11841,9 +12321,11 @@ class VmfsMountFault {
 	}
 }
 
-class VmotionInterfaceNotEnabled {}
+class VmotionInterfaceNotEnabled {
+}
 
-class VolumeEditorError {}
+class VolumeEditorError {
+}
 
 class VramLimitLicense {
 	public $limit; //int
@@ -11933,9 +12415,11 @@ class VspanSameSessionPortConflict {
 	}
 }
 
-class WakeOnLanNotSupported {}
+class WakeOnLanNotSupported {
+}
 
-class WakeOnLanNotSupportedByVmotionNIC {}
+class WakeOnLanNotSupportedByVmotionNIC {
+}
 
 class WillLoseHAProtection {
 	public $resolution; //string
@@ -11945,9 +12429,11 @@ class WillLoseHAProtection {
 	}
 }
 
-class WillModifyConfigCpuRequirements {}
+class WillModifyConfigCpuRequirements {
+}
 
-class WillResetSnapshotDirectory {}
+class WillResetSnapshotDirectory {
+}
 
 class HostActiveDirectoryInfo {
 	public $joinedDomain; //string
@@ -12241,7 +12727,8 @@ class HostCapability {
 	}
 }
 
-class HostConfigChange {}
+class HostConfigChange {
+}
 
 class HostConfigInfo {
 	public $host; //ManagedObjectReference
@@ -12441,7 +12928,8 @@ class ArrayOfHostConnectInfoNetworkInfo {
 	}
 }
 
-class HostNewNetworkConnectInfo {}
+class HostNewNetworkConnectInfo {
+}
 
 class HostDatastoreConnectInfo {
 	public $summary; //DatastoreSummary
@@ -12611,7 +13099,8 @@ class ArrayOfFileInfo {
 	}
 }
 
-class FileQuery {}
+class FileQuery {
+}
 
 class ArrayOfFileQuery {
 	public $FileQuery; //FileQuery
@@ -12647,7 +13136,8 @@ class VmConfigFileQuery {
 	}
 }
 
-class TemplateConfigFileQuery {}
+class TemplateConfigFileQuery {
+}
 
 class VmDiskFileQueryFilter {
 	public $diskType; //string
@@ -12691,17 +13181,23 @@ class VmDiskFileQuery {
 	}
 }
 
-class FolderFileQuery {}
+class FolderFileQuery {
+}
 
-class VmSnapshotFileQuery {}
+class VmSnapshotFileQuery {
+}
 
-class IsoImageFileQuery {}
+class IsoImageFileQuery {
+}
 
-class FloppyImageFileQuery {}
+class FloppyImageFileQuery {
+}
 
-class VmNvramFileQuery {}
+class VmNvramFileQuery {
+}
 
-class VmLogFileQuery {}
+class VmLogFileQuery {
+}
 
 class VmConfigFileInfo {
 	public $configVersion; //int
@@ -12711,7 +13207,8 @@ class VmConfigFileInfo {
 	}
 }
 
-class TemplateConfigFileInfo {}
+class TemplateConfigFileInfo {
+}
 
 class VmDiskFileInfo {
 	public $diskType; //string
@@ -12731,17 +13228,23 @@ class VmDiskFileInfo {
 	}
 }
 
-class FolderFileInfo {}
+class FolderFileInfo {
+}
 
-class VmSnapshotFileInfo {}
+class VmSnapshotFileInfo {
+}
 
-class IsoImageFileInfo {}
+class IsoImageFileInfo {
+}
 
-class FloppyImageFileInfo {}
+class FloppyImageFileInfo {
+}
 
-class VmNvramFileInfo {}
+class VmNvramFileInfo {
+}
 
-class VmLogFileInfo {}
+class VmLogFileInfo {
+}
 
 class HostDatastoreBrowserSearchSpec {
 	public $query; //FileQuery
@@ -12875,7 +13378,8 @@ class VmfsDatastoreSingleExtentOption {
 	}
 }
 
-class VmfsDatastoreAllExtentOption {}
+class VmfsDatastoreAllExtentOption {
+}
 
 class VmfsDatastoreMultipleExtentOption {
 	public $vmfsExtent; //HostDiskPartitionBlockRange
@@ -13085,7 +13589,8 @@ class ArrayOfHostDiagnosticPartition {
 	}
 }
 
-class HostDirectoryStoreInfo {}
+class HostDirectoryStoreInfo {
+}
 
 class HostDiskDimensionsChs {
 	public $cylinder; //long
@@ -13109,7 +13614,8 @@ class HostDiskDimensionsLba {
 	}
 }
 
-class HostDiskDimensions {}
+class HostDiskDimensions {
+}
 
 class HostDiskPartitionAttributes {
 	public $partition; //int
@@ -13459,7 +13965,8 @@ class HostLocalFileSystemVolume {
 	}
 }
 
-class HostVfatVolume {}
+class HostVfatVolume {
+}
 
 class HostFirewallConfigRuleSetConfig {
 	public $rulesetId; //string
@@ -13767,9 +14274,11 @@ class ArrayOfHostHostBusAdapter {
 	}
 }
 
-class HostParallelScsiHba {}
+class HostParallelScsiHba {
+}
 
-class HostBlockHba {}
+class HostBlockHba {
+}
 
 class HostFibreChannelHba {
 	public $portWorldWideName; //long
@@ -14509,7 +15018,8 @@ class HostPosixAccountSpec {
 	}
 }
 
-class HostLocalAuthenticationInfo {}
+class HostLocalAuthenticationInfo {
+}
 
 class HostLowLevelProvisioningManagerDiskLayoutSpec {
 	public $controllerType; //string
@@ -16393,11 +16903,14 @@ class ArrayOfHostSystemResourceInfo {
 	}
 }
 
-class HostTargetTransport {}
+class HostTargetTransport {
+}
 
-class HostParallelScsiTargetTransport {}
+class HostParallelScsiTargetTransport {
+}
 
-class HostBlockAdapterTargetTransport {}
+class HostBlockAdapterTargetTransport {
+}
 
 class HostFibreChannelTargetTransport {
 	public $portWorldWideName; //long
@@ -16725,7 +17238,8 @@ class HostVirtualNicManagerInfo {
 	}
 }
 
-class HostVirtualSwitchBridge {}
+class HostVirtualSwitchBridge {
+}
 
 class HostVirtualSwitchAutoBridge {
 	public $excludedNicDevice; //string
@@ -17785,9 +18299,11 @@ class ClusterProfileConfigInfo {
 	}
 }
 
-class ClusterProfileCreateSpec {}
+class ClusterProfileCreateSpec {
+}
 
-class ClusterProfileConfigSpec {}
+class ClusterProfileConfigSpec {
+}
 
 class ClusterProfileCompleteConfigSpec {
 	public $complyProfile; //ComplianceProfile
@@ -17935,7 +18451,8 @@ class ArrayOfPhysicalNicProfile {
 	}
 }
 
-class HostMemoryProfile {}
+class HostMemoryProfile {
+}
 
 class UserProfile {
 	public $key; //string
@@ -17993,7 +18510,8 @@ class ArrayOfOptionProfile {
 	}
 }
 
-class DateTimeProfile {}
+class DateTimeProfile {
+}
 
 class ServiceProfile {
 	public $key; //string
@@ -18059,7 +18577,8 @@ class StorageProfile {
 	}
 }
 
-class NetworkProfileDnsConfigProfile {}
+class NetworkProfileDnsConfigProfile {
+}
 
 class NetworkProfile {
 	public $vswitch; //VirtualSwitchProfile
@@ -18099,7 +18618,8 @@ class DvsVNicProfile {
 	}
 }
 
-class DvsServiceConsoleVNicProfile {}
+class DvsServiceConsoleVNicProfile {
+}
 
 class ArrayOfDvsServiceConsoleVNicProfile {
 	public $DvsServiceConsoleVNicProfile; //DvsServiceConsoleVNicProfile
@@ -18109,7 +18629,8 @@ class ArrayOfDvsServiceConsoleVNicProfile {
 	}
 }
 
-class DvsHostVNicProfile {}
+class DvsHostVNicProfile {
+}
 
 class ArrayOfDvsHostVNicProfile {
 	public $DvsHostVNicProfile; //DvsHostVNicProfile
@@ -18163,7 +18684,8 @@ class IpRouteProfile {
 	}
 }
 
-class StaticRouteProfile {}
+class StaticRouteProfile {
+}
 
 class ArrayOfStaticRouteProfile {
 	public $StaticRouteProfile; //StaticRouteProfile
@@ -18173,9 +18695,11 @@ class ArrayOfStaticRouteProfile {
 	}
 }
 
-class LinkProfile {}
+class LinkProfile {
+}
 
-class NumPortsProfile {}
+class NumPortsProfile {
+}
 
 class VirtualSwitchProfile {
 	public $key; //string
@@ -18201,9 +18725,11 @@ class ArrayOfVirtualSwitchProfile {
 	}
 }
 
-class VlanProfile {}
+class VlanProfile {
+}
 
-class VirtualSwitchSelectionProfile {}
+class VirtualSwitchSelectionProfile {
+}
 
 class PortGroupProfile {
 	public $key; //string
@@ -18221,7 +18747,8 @@ class PortGroupProfile {
 	}
 }
 
-class VmPortGroupProfile {}
+class VmPortGroupProfile {
+}
 
 class ArrayOfVmPortGroupProfile {
 	public $VmPortGroupProfile; //VmPortGroupProfile
@@ -18263,9 +18790,11 @@ class ArrayOfServiceConsolePortGroupProfile {
 	}
 }
 
-class NetworkPolicyProfile {}
+class NetworkPolicyProfile {
+}
 
-class IpAddressProfile {}
+class IpAddressProfile {
+}
 
 class AuthenticationProfile {
 	public $activeDirectory; //ActiveDirectoryProfile
@@ -18275,7 +18804,8 @@ class AuthenticationProfile {
 	}
 }
 
-class ActiveDirectoryProfile {}
+class ActiveDirectoryProfile {
+}
 
 class PermissionProfile {
 	public $key; //string
@@ -18309,7 +18839,8 @@ class HostProfileConfigInfo {
 	}
 }
 
-class HostProfileConfigSpec {}
+class HostProfileConfigSpec {
+}
 
 class HostProfileSerializedHostProfileSpec {
 	public $validatorHost; //ManagedObjectReference
@@ -18355,7 +18886,8 @@ class HostProfileManagerConfigTaskList {
 	}
 }
 
-class AnswerFileCreateSpec {}
+class AnswerFileCreateSpec {
+}
 
 class AnswerFileOptionsCreateSpec {
 	public $userInput; //ProfileDeferredPolicyOptionParameter
@@ -18505,7 +19037,8 @@ class WeeklyTaskScheduler {
 	}
 }
 
-class MonthlyTaskScheduler {}
+class MonthlyTaskScheduler {
+}
 
 class MonthlyByDayTaskScheduler {
 	public $day; //int
@@ -19255,7 +19788,8 @@ class VirtualMachineAffinityInfo {
 	}
 }
 
-class VirtualMachineBootOptionsBootableDevice {}
+class VirtualMachineBootOptionsBootableDevice {
+}
 
 class ArrayOfVirtualMachineBootOptionsBootableDevice {
 	public $VirtualMachineBootOptionsBootableDevice; //VirtualMachineBootOptionsBootableDevice
@@ -19281,9 +19815,11 @@ class VirtualMachineBootOptionsBootableEthernetDevice {
 	}
 }
 
-class VirtualMachineBootOptionsBootableFloppyDevice {}
+class VirtualMachineBootOptionsBootableFloppyDevice {
+}
 
-class VirtualMachineBootOptionsBootableCdromDevice {}
+class VirtualMachineBootOptionsBootableCdromDevice {
+}
 
 class VirtualMachineBootOptions {
 	public $bootDelay; //long
@@ -19371,7 +19907,8 @@ class VirtualMachineCapability {
 	}
 }
 
-class VirtualMachineCdromInfo {}
+class VirtualMachineCdromInfo {
+}
 
 class ArrayOfVirtualMachineCdromInfo {
 	public $VirtualMachineCdromInfo; //VirtualMachineCdromInfo
@@ -19839,7 +20376,8 @@ class VirtualMachineDefaultPowerOpInfo {
 	}
 }
 
-class VirtualMachineDeviceRuntimeInfoDeviceRuntimeState {}
+class VirtualMachineDeviceRuntimeInfoDeviceRuntimeState {
+}
 
 class VirtualMachineDeviceRuntimeInfoVirtualEthernetCardRuntimeState {
 	public $vmDirectPathGen2Active; //boolean
@@ -20111,7 +20649,8 @@ class VirtualMachineFlagInfo {
 	}
 }
 
-class VirtualMachineFloppyInfo {}
+class VirtualMachineFloppyInfo {
+}
 
 class ArrayOfVirtualMachineFloppyInfo {
 	public $VirtualMachineFloppyInfo; //VirtualMachineFloppyInfo
@@ -20431,7 +20970,8 @@ class VirtualMachineNetworkShaperInfo {
 	}
 }
 
-class VirtualMachineParallelInfo {}
+class VirtualMachineParallelInfo {
+}
 
 class ArrayOfVirtualMachineParallelInfo {
 	public $VirtualMachineParallelInfo; //VirtualMachineParallelInfo
@@ -20625,7 +21165,8 @@ class ArrayOfVirtualMachineScsiPassthroughInfo {
 	}
 }
 
-class VirtualMachineSerialInfo {}
+class VirtualMachineSerialInfo {
+}
 
 class ArrayOfVirtualMachineSerialInfo {
 	public $VirtualMachineSerialInfo; //VirtualMachineSerialInfo
@@ -20681,7 +21222,8 @@ class ArrayOfVirtualMachineSnapshotTree {
 	}
 }
 
-class VirtualMachineSoundInfo {}
+class VirtualMachineSoundInfo {
+}
 
 class ArrayOfVirtualMachineSoundInfo {
 	public $VirtualMachineSoundInfo; //VirtualMachineSoundInfo
@@ -21091,7 +21633,8 @@ class CustomizationSpec {
 	}
 }
 
-class CustomizationName {}
+class CustomizationName {
+}
 
 class CustomizationFixedName {
 	public $name; //string
@@ -21109,9 +21652,11 @@ class CustomizationPrefixName {
 	}
 }
 
-class CustomizationVirtualMachineName {}
+class CustomizationVirtualMachineName {
+}
 
-class CustomizationUnknownName {}
+class CustomizationUnknownName {
+}
 
 class CustomizationCustomName {
 	public $argument; //string
@@ -21131,7 +21676,8 @@ class CustomizationPassword {
 	}
 }
 
-class CustomizationOptions {}
+class CustomizationOptions {
+}
 
 class CustomizationWinOptions {
 	public $changeSID; //boolean
@@ -21145,7 +21691,8 @@ class CustomizationWinOptions {
 	}
 }
 
-class CustomizationLinuxOptions {}
+class CustomizationLinuxOptions {
+}
 
 class CustomizationGuiUnattended {
 	public $password; //CustomizationPassword
@@ -21207,7 +21754,8 @@ class CustomizationLicenseFilePrintData {
 	}
 }
 
-class CustomizationIdentitySettings {}
+class CustomizationIdentitySettings {
+}
 
 class CustomizationSysprepText {
 	public $value; //string
@@ -21257,9 +21805,11 @@ class CustomizationGlobalIPSettings {
 	}
 }
 
-class CustomizationIpGenerator {}
+class CustomizationIpGenerator {
+}
 
-class CustomizationDhcpIpGenerator {}
+class CustomizationDhcpIpGenerator {
+}
 
 class CustomizationFixedIp {
 	public $ipAddress; //string
@@ -21269,7 +21819,8 @@ class CustomizationFixedIp {
 	}
 }
 
-class CustomizationUnknownIpGenerator {}
+class CustomizationUnknownIpGenerator {
+}
 
 class CustomizationCustomIpGenerator {
 	public $argument; //string
@@ -21279,7 +21830,8 @@ class CustomizationCustomIpGenerator {
 	}
 }
 
-class CustomizationIpV6Generator {}
+class CustomizationIpV6Generator {
+}
 
 class ArrayOfCustomizationIpV6Generator {
 	public $CustomizationIpV6Generator; //CustomizationIpV6Generator
@@ -21289,9 +21841,11 @@ class ArrayOfCustomizationIpV6Generator {
 	}
 }
 
-class CustomizationDhcpIpV6Generator {}
+class CustomizationDhcpIpV6Generator {
+}
 
-class CustomizationStatelessIpV6Generator {}
+class CustomizationStatelessIpV6Generator {
+}
 
 class CustomizationFixedIpV6 {
 	public $ipAddress; //string
@@ -21303,9 +21857,11 @@ class CustomizationFixedIpV6 {
 	}
 }
 
-class CustomizationAutoIpV6Generator {}
+class CustomizationAutoIpV6Generator {
+}
 
-class CustomizationUnknownIpV6Generator {}
+class CustomizationUnknownIpV6Generator {
+}
 
 class CustomizationCustomIpV6Generator {
 	public $argument; //string
@@ -21387,15 +21943,20 @@ class HostDiskMappingOption {
 	}
 }
 
-class ParaVirtualSCSIController {}
+class ParaVirtualSCSIController {
+}
 
-class ParaVirtualSCSIControllerOption {}
+class ParaVirtualSCSIControllerOption {
+}
 
-class VirtualBusLogicController {}
+class VirtualBusLogicController {
+}
 
-class VirtualBusLogicControllerOption {}
+class VirtualBusLogicControllerOption {
+}
 
-class VirtualCdromIsoBackingInfo {}
+class VirtualCdromIsoBackingInfo {
+}
 
 class VirtualCdromPassthroughBackingInfo {
 	public $exclusive; //boolean
@@ -21413,13 +21974,17 @@ class VirtualCdromRemotePassthroughBackingInfo {
 	}
 }
 
-class VirtualCdromAtapiBackingInfo {}
+class VirtualCdromAtapiBackingInfo {
+}
 
-class VirtualCdromRemoteAtapiBackingInfo {}
+class VirtualCdromRemoteAtapiBackingInfo {
+}
 
-class VirtualCdrom {}
+class VirtualCdrom {
+}
 
-class VirtualCdromIsoBackingOption {}
+class VirtualCdromIsoBackingOption {
+}
 
 class VirtualCdromPassthroughBackingOption {
 	public $exclusive; //BoolOption
@@ -21437,11 +22002,14 @@ class VirtualCdromRemotePassthroughBackingOption {
 	}
 }
 
-class VirtualCdromAtapiBackingOption {}
+class VirtualCdromAtapiBackingOption {
+}
 
-class VirtualCdromRemoteAtapiBackingOption {}
+class VirtualCdromRemoteAtapiBackingOption {
+}
 
-class VirtualCdromOption {}
+class VirtualCdromOption {
+}
 
 class VirtualController {
 	public $busNumber; //int
@@ -21463,7 +22031,8 @@ class VirtualControllerOption {
 	}
 }
 
-class VirtualDeviceBackingInfo {}
+class VirtualDeviceBackingInfo {
+}
 
 class VirtualDeviceFileBackingInfo {
 	public $fileName; //string
@@ -21595,7 +22164,8 @@ class VirtualDeviceRemoteDeviceBackingOption {
 	}
 }
 
-class VirtualDevicePipeBackingOption {}
+class VirtualDevicePipeBackingOption {
+}
 
 class VirtualDeviceURIBackingOption {
 	public $directions; //ChoiceOption
@@ -21905,7 +22475,8 @@ class VirtualDiskRawDiskVer2BackingOption {
 	}
 }
 
-class VirtualDiskPartitionedRawDiskVer2BackingOption {}
+class VirtualDiskPartitionedRawDiskVer2BackingOption {
+}
 
 class VirtualDiskRawDiskMappingVer1BackingOption {
 	public $descriptorFileNameExtensions; //ChoiceOption
@@ -21931,17 +22502,23 @@ class VirtualDiskOption {
 	}
 }
 
-class VirtualE1000 {}
+class VirtualE1000 {
+}
 
-class VirtualE1000Option {}
+class VirtualE1000Option {
+}
 
-class VirtualE1000e {}
+class VirtualE1000e {
+}
 
-class VirtualE1000eOption {}
+class VirtualE1000eOption {
+}
 
-class VirtualEnsoniq1371 {}
+class VirtualEnsoniq1371 {
+}
 
-class VirtualEnsoniq1371Option {}
+class VirtualEnsoniq1371Option {
+}
 
 class VirtualEthernetCardNetworkBackingInfo {
 	public $network; //ManagedObjectReference
@@ -21953,7 +22530,8 @@ class VirtualEthernetCardNetworkBackingInfo {
 	}
 }
 
-class VirtualEthernetCardLegacyNetworkBackingInfo {}
+class VirtualEthernetCardLegacyNetworkBackingInfo {
+}
 
 class VirtualEthernetCardDistributedVirtualPortBackingInfo {
 	public $port; //DistributedVirtualSwitchPortConnection
@@ -21975,11 +22553,14 @@ class VirtualEthernetCard {
 	}
 }
 
-class VirtualEthernetCardNetworkBackingOption {}
+class VirtualEthernetCardNetworkBackingOption {
+}
 
-class VirtualEthernetCardLegacyNetworkBackingOption {}
+class VirtualEthernetCardLegacyNetworkBackingOption {
+}
 
-class VirtualEthernetCardDVPortBackingOption {}
+class VirtualEthernetCardDVPortBackingOption {
+}
 
 class VirtualEthernetCardOption {
 	public $supportedOUI; //ChoiceOption
@@ -21995,27 +22576,38 @@ class VirtualEthernetCardOption {
 	}
 }
 
-class VirtualFloppyImageBackingInfo {}
+class VirtualFloppyImageBackingInfo {
+}
 
-class VirtualFloppyDeviceBackingInfo {}
+class VirtualFloppyDeviceBackingInfo {
+}
 
-class VirtualFloppyRemoteDeviceBackingInfo {}
+class VirtualFloppyRemoteDeviceBackingInfo {
+}
 
-class VirtualFloppy {}
+class VirtualFloppy {
+}
 
-class VirtualFloppyImageBackingOption {}
+class VirtualFloppyImageBackingOption {
+}
 
-class VirtualFloppyDeviceBackingOption {}
+class VirtualFloppyDeviceBackingOption {
+}
 
-class VirtualFloppyRemoteDeviceBackingOption {}
+class VirtualFloppyRemoteDeviceBackingOption {
+}
 
-class VirtualFloppyOption {}
+class VirtualFloppyOption {
+}
 
-class VirtualHdAudioCard {}
+class VirtualHdAudioCard {
+}
 
-class VirtualHdAudioCardOption {}
+class VirtualHdAudioCardOption {
+}
 
-class VirtualIDEController {}
+class VirtualIDEController {
+}
 
 class VirtualIDEControllerOption {
 	public $numIDEDisks; //IntOption
@@ -22027,19 +22619,26 @@ class VirtualIDEControllerOption {
 	}
 }
 
-class VirtualKeyboard {}
+class VirtualKeyboard {
+}
 
-class VirtualKeyboardOption {}
+class VirtualKeyboardOption {
+}
 
-class VirtualLsiLogicController {}
+class VirtualLsiLogicController {
+}
 
-class VirtualLsiLogicControllerOption {}
+class VirtualLsiLogicControllerOption {
+}
 
-class VirtualLsiLogicSASController {}
+class VirtualLsiLogicSASController {
+}
 
-class VirtualLsiLogicSASControllerOption {}
+class VirtualLsiLogicSASControllerOption {
+}
 
-class VirtualPCIController {}
+class VirtualPCIController {
+}
 
 class VirtualPCIControllerOption {
 	public $numSCSIControllers; //IntOption
@@ -22081,13 +22680,17 @@ class VirtualPCIPassthroughDeviceBackingInfo {
 	}
 }
 
-class VirtualPCIPassthrough {}
+class VirtualPCIPassthrough {
+}
 
-class VirtualPCIPassthroughDeviceBackingOption {}
+class VirtualPCIPassthroughDeviceBackingOption {
+}
 
-class VirtualPCIPassthroughOption {}
+class VirtualPCIPassthroughOption {
+}
 
-class VirtualPCNet32 {}
+class VirtualPCNet32 {
+}
 
 class VirtualPCNet32Option {
 	public $supportsMorphing; //boolean
@@ -22097,7 +22700,8 @@ class VirtualPCNet32Option {
 	}
 }
 
-class VirtualPS2Controller {}
+class VirtualPS2Controller {
+}
 
 class VirtualPS2ControllerOption {
 	public $numKeyboards; //IntOption
@@ -22109,17 +22713,23 @@ class VirtualPS2ControllerOption {
 	}
 }
 
-class VirtualParallelPortFileBackingInfo {}
+class VirtualParallelPortFileBackingInfo {
+}
 
-class VirtualParallelPortDeviceBackingInfo {}
+class VirtualParallelPortDeviceBackingInfo {
+}
 
-class VirtualParallelPort {}
+class VirtualParallelPort {
+}
 
-class VirtualParallelPortFileBackingOption {}
+class VirtualParallelPortFileBackingOption {
+}
 
-class VirtualParallelPortDeviceBackingOption {}
+class VirtualParallelPortDeviceBackingOption {
+}
 
-class VirtualParallelPortOption {}
+class VirtualParallelPortOption {
+}
 
 class VirtualPointingDeviceDeviceBackingInfo {
 	public $hostPointingDevice; //string
@@ -22129,7 +22739,8 @@ class VirtualPointingDeviceDeviceBackingInfo {
 	}
 }
 
-class VirtualPointingDevice {}
+class VirtualPointingDevice {
+}
 
 class VirtualPointingDeviceBackingOption {
 	public $hostPointingDevice; //ChoiceOption
@@ -22139,7 +22750,8 @@ class VirtualPointingDeviceBackingOption {
 	}
 }
 
-class VirtualPointingDeviceOption {}
+class VirtualPointingDeviceOption {
+}
 
 class ArrayOfVirtualSCSISharing {
 	public $VirtualSCSISharing; //VirtualSCSISharing
@@ -22181,15 +22793,20 @@ class VirtualSCSIControllerOption {
 	}
 }
 
-class VirtualSCSIPassthroughDeviceBackingInfo {}
+class VirtualSCSIPassthroughDeviceBackingInfo {
+}
 
-class VirtualSCSIPassthrough {}
+class VirtualSCSIPassthrough {
+}
 
-class VirtualSCSIPassthroughDeviceBackingOption {}
+class VirtualSCSIPassthroughDeviceBackingOption {
+}
 
-class VirtualSCSIPassthroughOption {}
+class VirtualSCSIPassthroughOption {
+}
 
-class VirtualSIOController {}
+class VirtualSIOController {
+}
 
 class VirtualSIOControllerOption {
 	public $numFloppyDrives; //IntOption
@@ -22203,9 +22820,11 @@ class VirtualSIOControllerOption {
 	}
 }
 
-class VirtualSerialPortFileBackingInfo {}
+class VirtualSerialPortFileBackingInfo {
+}
 
-class VirtualSerialPortDeviceBackingInfo {}
+class VirtualSerialPortDeviceBackingInfo {
+}
 
 class VirtualSerialPortPipeBackingInfo {
 	public $endpoint; //string
@@ -22217,7 +22836,8 @@ class VirtualSerialPortPipeBackingInfo {
 	}
 }
 
-class VirtualSerialPortURIBackingInfo {}
+class VirtualSerialPortURIBackingInfo {
+}
 
 class VirtualSerialPort {
 	public $yieldOnPoll; //boolean
@@ -22227,9 +22847,11 @@ class VirtualSerialPort {
 	}
 }
 
-class VirtualSerialPortFileBackingOption {}
+class VirtualSerialPortFileBackingOption {
+}
 
-class VirtualSerialPortDeviceBackingOption {}
+class VirtualSerialPortDeviceBackingOption {
+}
 
 class VirtualSerialPortPipeBackingOption {
 	public $endpoint; //ChoiceOption
@@ -22241,7 +22863,8 @@ class VirtualSerialPortPipeBackingOption {
 	}
 }
 
-class VirtualSerialPortURIBackingOption {}
+class VirtualSerialPortURIBackingOption {
+}
 
 class VirtualSerialPortOption {
 	public $yieldOnPoll; //BoolOption
@@ -22251,19 +22874,26 @@ class VirtualSerialPortOption {
 	}
 }
 
-class VirtualSoundBlaster16 {}
+class VirtualSoundBlaster16 {
+}
 
-class VirtualSoundBlaster16Option {}
+class VirtualSoundBlaster16Option {
+}
 
-class VirtualSoundCardDeviceBackingInfo {}
+class VirtualSoundCardDeviceBackingInfo {
+}
 
-class VirtualSoundCard {}
+class VirtualSoundCard {
+}
 
-class VirtualSoundCardDeviceBackingOption {}
+class VirtualSoundCardDeviceBackingOption {
+}
 
-class VirtualSoundCardOption {}
+class VirtualSoundCardOption {
+}
 
-class VirtualUSBUSBBackingInfo {}
+class VirtualUSBUSBBackingInfo {
+}
 
 class VirtualUSBRemoteHostBackingInfo {
 	public $hostname; //string
@@ -22319,13 +22949,17 @@ class VirtualUSBControllerOption {
 	}
 }
 
-class VirtualUSBUSBBackingOption {}
+class VirtualUSBUSBBackingOption {
+}
 
-class VirtualUSBRemoteHostBackingOption {}
+class VirtualUSBRemoteHostBackingOption {
+}
 
-class VirtualUSBRemoteClientBackingOption {}
+class VirtualUSBRemoteClientBackingOption {
+}
 
-class VirtualUSBOption {}
+class VirtualUSBOption {
+}
 
 class VirtualUSBXHCIController {
 	public $autoConnectDevices; //boolean
@@ -22363,9 +22997,11 @@ class VirtualMachineVMCIDeviceOption {
 	}
 }
 
-class VirtualMachineVMIROM {}
+class VirtualMachineVMIROM {
+}
 
-class VirtualVMIROMOption {}
+class VirtualVMIROMOption {
+}
 
 class VirtualMachineVideoCard {
 	public $videoRamSizeInKB; //long
@@ -22395,17 +23031,23 @@ class VirtualVideoCardOption {
 	}
 }
 
-class VirtualVmxnet {}
+class VirtualVmxnet {
+}
 
-class VirtualVmxnet2 {}
+class VirtualVmxnet2 {
+}
 
-class VirtualVmxnet2Option {}
+class VirtualVmxnet2Option {
+}
 
-class VirtualVmxnet3 {}
+class VirtualVmxnet3 {
+}
 
-class VirtualVmxnet3Option {}
+class VirtualVmxnet3Option {
+}
 
-class VirtualVmxnetOption {}
+class VirtualVmxnetOption {
+}
 
 class GuestFileAttributes {
 	public $modificationTime; //dateTime
@@ -28553,11 +29195,14 @@ class AddAuthorizationRoleResponse {
 	}
 }
 
-class RemoveAuthorizationRoleResponse {}
+class RemoveAuthorizationRoleResponse {
+}
 
-class UpdateAuthorizationRoleResponse {}
+class UpdateAuthorizationRoleResponse {
+}
 
-class MergePermissionsResponse {}
+class MergePermissionsResponse {
+}
 
 class RetrieveRolePermissionsResponse {
 	public $returnval; //Permission
@@ -28583,11 +29228,14 @@ class RetrieveAllPermissionsResponse {
 	}
 }
 
-class SetEntityPermissionsResponse {}
+class SetEntityPermissionsResponse {
+}
 
-class ResetEntityPermissionsResponse {}
+class ResetEntityPermissionsResponse {
+}
 
-class RemoveEntityPermissionResponse {}
+class RemoveEntityPermissionResponse {
+}
 
 class HasPrivilegeOnEntityResponse {
 	public $returnval; //boolean
@@ -28605,9 +29253,11 @@ class ReconfigureCluster_TaskResponse {
 	}
 }
 
-class ApplyRecommendationResponse {}
+class ApplyRecommendationResponse {
+}
 
-class CancelRecommendationResponse {}
+class CancelRecommendationResponse {
+}
 
 class RecommendHostsForVmResponse {
 	public $returnval; //ClusterHostRecommendation
@@ -28641,7 +29291,8 @@ class MoveHostInto_TaskResponse {
 	}
 }
 
-class RefreshRecommendationResponse {}
+class RefreshRecommendationResponse {
+}
 
 class RetrieveDasAdvancedRuntimeInfoResponse {
 	public $returnval; //ClusterDasAdvancedRuntimeInfo
@@ -28675,11 +29326,14 @@ class AddCustomFieldDefResponse {
 	}
 }
 
-class RemoveCustomFieldDefResponse {}
+class RemoveCustomFieldDefResponse {
+}
 
-class RenameCustomFieldDefResponse {}
+class RenameCustomFieldDefResponse {
+}
 
-class SetFieldResponse {}
+class SetFieldResponse {
+}
 
 class DoesCustomizationSpecExistResponse {
 	public $returnval; //boolean
@@ -28697,15 +29351,20 @@ class GetCustomizationSpecResponse {
 	}
 }
 
-class CreateCustomizationSpecResponse {}
+class CreateCustomizationSpecResponse {
+}
 
-class OverwriteCustomizationSpecResponse {}
+class OverwriteCustomizationSpecResponse {
+}
 
-class DeleteCustomizationSpecResponse {}
+class DeleteCustomizationSpecResponse {
+}
 
-class DuplicateCustomizationSpecResponse {}
+class DuplicateCustomizationSpecResponse {
+}
 
-class RenameCustomizationSpecResponse {}
+class RenameCustomizationSpecResponse {
+}
 
 class CustomizationSpecItemToXmlResponse {
 	public $returnval; //string
@@ -28723,7 +29382,8 @@ class XmlToCustomizationSpecItemResponse {
 	}
 }
 
-class CheckCustomizationResourcesResponse {}
+class CheckCustomizationResourcesResponse {
+}
 
 class QueryConnectionInfoResponse {
 	public $returnval; //HostConnectInfo
@@ -28741,9 +29401,11 @@ class PowerOnMultiVM_TaskResponse {
 	}
 }
 
-class RefreshDatastoreResponse {}
+class RefreshDatastoreResponse {
+}
 
-class RefreshDatastoreStorageInfoResponse {}
+class RefreshDatastoreStorageInfoResponse {
+}
 
 class UpdateVirtualMachineFiles_TaskResponse {
 	public $returnval; //ManagedObjectReference
@@ -28753,9 +29415,11 @@ class UpdateVirtualMachineFiles_TaskResponse {
 	}
 }
 
-class RenameDatastoreResponse {}
+class RenameDatastoreResponse {
+}
 
-class DestroyDatastoreResponse {}
+class DestroyDatastoreResponse {
+}
 
 class DatastoreEnterMaintenanceModeResponse {
 	public $returnval; //StoragePlacementResult
@@ -28861,7 +29525,8 @@ class MoveDVPort_TaskResponse {
 	}
 }
 
-class UpdateDvsCapabilityResponse {}
+class UpdateDvsCapabilityResponse {
+}
 
 class ReconfigureDVPort_TaskResponse {
 	public $returnval; //ManagedObjectReference
@@ -28871,7 +29536,8 @@ class ReconfigureDVPort_TaskResponse {
 	}
 }
 
-class RefreshDVPortStateResponse {}
+class RefreshDVPortStateResponse {
+}
 
 class RectifyDvsHost_TaskResponse {
 	public $returnval; //ManagedObjectReference
@@ -28881,13 +29547,17 @@ class RectifyDvsHost_TaskResponse {
 	}
 }
 
-class UpdateNetworkResourcePoolResponse {}
+class UpdateNetworkResourcePoolResponse {
+}
 
-class AddNetworkResourcePoolResponse {}
+class AddNetworkResourcePoolResponse {
+}
 
-class RemoveNetworkResourcePoolResponse {}
+class RemoveNetworkResourcePoolResponse {
+}
 
-class EnableNetworkResourceManagementResponse {}
+class EnableNetworkResourceManagementResponse {
+}
 
 class QueryConfigOptionDescriptorResponse {
 	public $returnval; //VirtualMachineConfigOptionDescriptor
@@ -28921,9 +29591,11 @@ class QueryTargetCapabilitiesResponse {
 	}
 }
 
-class setCustomValueResponse {}
+class setCustomValueResponse {
+}
 
-class UnregisterExtensionResponse {}
+class UnregisterExtensionResponse {
+}
 
 class FindExtensionResponse {
 	public $returnval; //Extension
@@ -28933,9 +29605,11 @@ class FindExtensionResponse {
 	}
 }
 
-class RegisterExtensionResponse {}
+class RegisterExtensionResponse {
+}
 
-class UpdateExtensionResponse {}
+class UpdateExtensionResponse {
+}
 
 class GetPublicKeyResponse {
 	public $returnval; //string
@@ -28945,9 +29619,11 @@ class GetPublicKeyResponse {
 	}
 }
 
-class SetPublicKeyResponse {}
+class SetPublicKeyResponse {
+}
 
-class SetExtensionCertificateResponse {}
+class SetExtensionCertificateResponse {
+}
 
 class QueryManagedByResponse {
 	public $returnval; //ManagedObjectReference
@@ -28981,9 +29657,11 @@ class DeleteDatastoreFile_TaskResponse {
 	}
 }
 
-class MakeDirectoryResponse {}
+class MakeDirectoryResponse {
+}
 
-class ChangeOwnerResponse {}
+class ChangeOwnerResponse {
+}
 
 class CreateFolderResponse {
 	public $returnval; //ManagedObjectReference
@@ -29073,13 +29751,17 @@ class CreateStoragePodResponse {
 	}
 }
 
-class SetCollectorPageSizeResponse {}
+class SetCollectorPageSizeResponse {
+}
 
-class RewindCollectorResponse {}
+class RewindCollectorResponse {
+}
 
-class ResetCollectorResponse {}
+class ResetCollectorResponse {
+}
 
-class DestroyCollectorResponse {}
+class DestroyCollectorResponse {
+}
 
 class QueryHostConnectionInfoResponse {
 	public $returnval; //HostConnectInfo
@@ -29089,7 +29771,8 @@ class QueryHostConnectionInfoResponse {
 	}
 }
 
-class UpdateSystemResourcesResponse {}
+class UpdateSystemResourcesResponse {
+}
 
 class ReconnectHost_TaskResponse {
 	public $returnval; //ManagedObjectReference
@@ -29179,11 +29862,14 @@ class ReconfigureHostForDAS_TaskResponse {
 	}
 }
 
-class UpdateFlagsResponse {}
+class UpdateFlagsResponse {
+}
 
-class EnterLockdownModeResponse {}
+class EnterLockdownModeResponse {
+}
 
-class ExitLockdownModeResponse {}
+class ExitLockdownModeResponse {
+}
 
 class AcquireCimServicesTicketResponse {
 	public $returnval; //HostServiceTicket
@@ -29193,7 +29879,8 @@ class AcquireCimServicesTicketResponse {
 	}
 }
 
-class UpdateIpmiResponse {}
+class UpdateIpmiResponse {
+}
 
 class RetrieveHardwareUptimeResponse {
 	public $returnval; //long
@@ -29211,11 +29898,14 @@ class HttpNfcLeaseGetManifestResponse {
 	}
 }
 
-class HttpNfcLeaseCompleteResponse {}
+class HttpNfcLeaseCompleteResponse {
+}
 
-class HttpNfcLeaseAbortResponse {}
+class HttpNfcLeaseAbortResponse {
+}
 
-class HttpNfcLeaseProgressResponse {}
+class HttpNfcLeaseProgressResponse {
+}
 
 class QueryIpPoolsResponse {
 	public $returnval; //IpPool
@@ -29233,9 +29923,11 @@ class CreateIpPoolResponse {
 	}
 }
 
-class UpdateIpPoolResponse {}
+class UpdateIpPoolResponse {
+}
 
-class DestroyIpPoolResponse {}
+class DestroyIpPoolResponse {
+}
 
 class UpdateAssignedLicenseResponse {
 	public $returnval; //LicenseManagerLicenseInfo
@@ -29245,7 +29937,8 @@ class UpdateAssignedLicenseResponse {
 	}
 }
 
-class RemoveAssignedLicenseResponse {}
+class RemoveAssignedLicenseResponse {
+}
 
 class QueryAssignedLicensesResponse {
 	public $returnval; //LicenseAssignmentManagerLicenseAssignment
@@ -29279,7 +29972,8 @@ class QueryLicenseUsageResponse {
 	}
 }
 
-class SetLicenseEditionResponse {}
+class SetLicenseEditionResponse {
+}
 
 class CheckLicenseFeatureResponse {
 	public $returnval; //boolean
@@ -29305,7 +29999,8 @@ class DisableFeatureResponse {
 	}
 }
 
-class ConfigureLicenseSourceResponse {}
+class ConfigureLicenseSourceResponse {
+}
 
 class UpdateLicenseResponse {
 	public $returnval; //LicenseManagerLicenseInfo
@@ -29323,7 +30018,8 @@ class AddLicenseResponse {
 	}
 }
 
-class RemoveLicenseResponse {}
+class RemoveLicenseResponse {
+}
 
 class DecodeLicenseResponse {
 	public $returnval; //LicenseManagerLicenseInfo
@@ -29333,11 +30029,14 @@ class DecodeLicenseResponse {
 	}
 }
 
-class UpdateLicenseLabelResponse {}
+class UpdateLicenseLabelResponse {
+}
 
-class RemoveLicenseLabelResponse {}
+class RemoveLicenseLabelResponse {
+}
 
-class ReloadResponse {}
+class ReloadResponse {
+}
 
 class Rename_TaskResponse {
 	public $returnval; //ManagedObjectReference
@@ -29355,7 +30054,8 @@ class Destroy_TaskResponse {
 	}
 }
 
-class DestroyNetworkResponse {}
+class DestroyNetworkResponse {
+}
 
 class ValidateHostResponse {
 	public $returnval; //OvfValidateHostResult
@@ -29437,15 +30137,20 @@ class QueryPerfCompositeResponse {
 	}
 }
 
-class CreatePerfIntervalResponse {}
+class CreatePerfIntervalResponse {
+}
 
-class RemovePerfIntervalResponse {}
+class RemovePerfIntervalResponse {
+}
 
-class UpdatePerfIntervalResponse {}
+class UpdatePerfIntervalResponse {
+}
 
-class UpdateCounterLevelMappingResponse {}
+class UpdateCounterLevelMappingResponse {
+}
 
-class ResetCounterLevelMappingResponse {}
+class ResetCounterLevelMappingResponse {
+}
 
 class EstimateDatabaseSizeResponse {
 	public $returnval; //DatabaseSizeEstimate
@@ -29455,11 +30160,14 @@ class EstimateDatabaseSizeResponse {
 	}
 }
 
-class UpdateConfigResponse {}
+class UpdateConfigResponse {
+}
 
-class MoveIntoResourcePoolResponse {}
+class MoveIntoResourcePoolResponse {
+}
 
-class UpdateChildResourceConfigurationResponse {}
+class UpdateChildResourceConfigurationResponse {
+}
 
 class CreateResourcePoolResponse {
 	public $returnval; //ManagedObjectReference
@@ -29469,7 +30177,8 @@ class CreateResourcePoolResponse {
 	}
 }
 
-class DestroyChildrenResponse {}
+class DestroyChildrenResponse {
+}
 
 class CreateVAppResponse {
 	public $returnval; //ManagedObjectReference
@@ -29511,7 +30220,8 @@ class QueryResourceConfigOptionResponse {
 	}
 }
 
-class RefreshRuntimeResponse {}
+class RefreshRuntimeResponse {
+}
 
 class FindByUuidResponse {
 	public $returnval; //ManagedObjectReference
@@ -29625,7 +30335,8 @@ class RetrieveProductComponentsResponse {
 	}
 }
 
-class UpdateServiceMessageResponse {}
+class UpdateServiceMessageResponse {
+}
 
 class LoginResponse {
 	public $returnval; //UserSession
@@ -29643,7 +30354,8 @@ class LoginBySSPIResponse {
 	}
 }
 
-class LogoutResponse {}
+class LogoutResponse {
+}
 
 class AcquireLocalTicketResponse {
 	public $returnval; //SessionManagerLocalTicket
@@ -29661,9 +30373,11 @@ class AcquireGenericServiceTicketResponse {
 	}
 }
 
-class TerminateSessionResponse {}
+class TerminateSessionResponse {
+}
 
-class SetLocaleResponse {}
+class SetLocaleResponse {
+}
 
 class LoginExtensionBySubjectNameResponse {
 	public $returnval; //UserSession
@@ -29745,9 +30459,11 @@ class ApplyStorageDrsRecommendation_TaskResponse {
 	}
 }
 
-class CancelStorageDrsRecommendationResponse {}
+class CancelStorageDrsRecommendationResponse {
+}
 
-class RefreshStorageDrsRecommendationResponse {}
+class RefreshStorageDrsRecommendationResponse {
+}
 
 class ConfigureStorageDrsForPod_TaskResponse {
 	public $returnval; //ManagedObjectReference
@@ -29765,13 +30481,17 @@ class RecommendDatastoresResponse {
 	}
 }
 
-class CancelTaskResponse {}
+class CancelTaskResponse {
+}
 
-class UpdateProgressResponse {}
+class UpdateProgressResponse {
+}
 
-class SetTaskStateResponse {}
+class SetTaskStateResponse {
+}
 
-class SetTaskDescriptionResponse {}
+class SetTaskDescriptionResponse {
+}
 
 class ReadNextTasksResponse {
 	public $returnval; //TaskInfo
@@ -29813,9 +30533,11 @@ class RetrieveUserGroupsResponse {
 	}
 }
 
-class UpdateVAppConfigResponse {}
+class UpdateVAppConfigResponse {
+}
 
-class UpdateLinkedChildrenResponse {}
+class UpdateLinkedChildrenResponse {
+}
 
 class CloneVApp_TaskResponse {
 	public $returnval; //ManagedObjectReference
@@ -29953,7 +30675,8 @@ class ZeroFillVirtualDisk_TaskResponse {
 	}
 }
 
-class SetVirtualDiskUuidResponse {}
+class SetVirtualDiskUuidResponse {
+}
 
 class QueryVirtualDiskUuidResponse {
 	public $returnval; //string
@@ -29971,7 +30694,8 @@ class QueryVirtualDiskGeometryResponse {
 	}
 }
 
-class RefreshStorageInfoResponse {}
+class RefreshStorageInfoResponse {
+}
 
 class CreateSnapshot_TaskResponse {
 	public $returnval; //ManagedObjectReference
@@ -30069,13 +30793,17 @@ class ResetVM_TaskResponse {
 	}
 }
 
-class ShutdownGuestResponse {}
+class ShutdownGuestResponse {
+}
 
-class RebootGuestResponse {}
+class RebootGuestResponse {
+}
 
-class StandbyGuestResponse {}
+class StandbyGuestResponse {
+}
 
-class AnswerVMResponse {}
+class AnswerVMResponse {
+}
 
 class CustomizeVM_TaskResponse {
 	public $returnval; //ManagedObjectReference
@@ -30085,7 +30813,8 @@ class CustomizeVM_TaskResponse {
 	}
 }
 
-class CheckCustomizationSpecResponse {}
+class CheckCustomizationSpecResponse {
+}
 
 class MigrateVM_TaskResponse {
 	public $returnval; //ManagedObjectReference
@@ -30119,17 +30848,23 @@ class ExportVmResponse {
 	}
 }
 
-class MarkAsTemplateResponse {}
+class MarkAsTemplateResponse {
+}
 
-class MarkAsVirtualMachineResponse {}
+class MarkAsVirtualMachineResponse {
+}
 
-class UnregisterVMResponse {}
+class UnregisterVMResponse {
+}
 
-class ResetGuestInformationResponse {}
+class ResetGuestInformationResponse {
+}
 
-class MountToolsInstallerResponse {}
+class MountToolsInstallerResponse {
+}
 
-class UnmountToolsInstallerResponse {}
+class UnmountToolsInstallerResponse {
+}
 
 class UpgradeTools_TaskResponse {
 	public $returnval; //ManagedObjectReference
@@ -30155,9 +30890,11 @@ class AcquireTicketResponse {
 	}
 }
 
-class SetScreenResolutionResponse {}
+class SetScreenResolutionResponse {
+}
 
-class DefragmentAllDisksResponse {}
+class DefragmentAllDisksResponse {
+}
 
 class CreateSecondaryVM_TaskResponse {
 	public $returnval; //ManagedObjectReference
@@ -30207,7 +30944,8 @@ class EnableSecondaryVM_TaskResponse {
 	}
 }
 
-class SetDisplayTopologyResponse {}
+class SetDisplayTopologyResponse {
+}
 
 class StartRecording_TaskResponse {
 	public $returnval; //ManagedObjectReference
@@ -30289,9 +31027,11 @@ class QueryFaultToleranceCompatibilityResponse {
 	}
 }
 
-class RemoveAlarmResponse {}
+class RemoveAlarmResponse {
+}
 
-class ReconfigureAlarmResponse {}
+class ReconfigureAlarmResponse {
+}
 
 class CreateAlarmResponse {
 	public $returnval; //ManagedObjectReference
@@ -30317,7 +31057,8 @@ class AreAlarmActionsEnabledResponse {
 	}
 }
 
-class EnableAlarmActionsResponse {}
+class EnableAlarmActionsResponse {
+}
 
 class GetAlarmStateResponse {
 	public $returnval; //AlarmState
@@ -30327,7 +31068,8 @@ class GetAlarmStateResponse {
 	}
 }
 
-class AcknowledgeAlarmResponse {}
+class AcknowledgeAlarmResponse {
+}
 
 class ReconfigureDVPortgroup_TaskResponse {
 	public $returnval; //ManagedObjectReference
@@ -30441,7 +31183,8 @@ class CreateCollectorForEventsResponse {
 	}
 }
 
-class LogUserEventResponse {}
+class LogUserEventResponse {
+}
 
 class QueryEventsResponse {
 	public $returnval; //Event
@@ -30451,7 +31194,8 @@ class QueryEventsResponse {
 	}
 }
 
-class PostEventResponse {}
+class PostEventResponse {
+}
 
 class JoinDomain_TaskResponse {
 	public $returnval; //ManagedObjectReference
@@ -30485,11 +31229,14 @@ class LeaveCurrentDomain_TaskResponse {
 	}
 }
 
-class ReconfigureAutostartResponse {}
+class ReconfigureAutostartResponse {
+}
 
-class AutoStartPowerOnResponse {}
+class AutoStartPowerOnResponse {
+}
 
-class AutoStartPowerOffResponse {}
+class AutoStartPowerOffResponse {
+}
 
 class QueryBootDevicesResponse {
 	public $returnval; //HostBootDeviceInfo
@@ -30499,7 +31246,8 @@ class QueryBootDevicesResponse {
 	}
 }
 
-class UpdateBootDeviceResponse {}
+class UpdateBootDeviceResponse {
+}
 
 class ConfigureHostCache_TaskResponse {
 	public $returnval; //ManagedObjectReference
@@ -30509,9 +31257,11 @@ class ConfigureHostCache_TaskResponse {
 	}
 }
 
-class EnableHyperThreadingResponse {}
+class EnableHyperThreadingResponse {
+}
 
-class DisableHyperThreadingResponse {}
+class DisableHyperThreadingResponse {
+}
 
 class SearchDatastore_TaskResponse {
 	public $returnval; //ManagedObjectReference
@@ -30529,9 +31279,11 @@ class SearchDatastoreSubFolders_TaskResponse {
 	}
 }
 
-class DeleteFileResponse {}
+class DeleteFileResponse {
+}
 
-class UpdateLocalSwapDatastoreResponse {}
+class UpdateLocalSwapDatastoreResponse {
+}
 
 class QueryAvailableDisksForVmfsResponse {
 	public $returnval; //HostScsiDisk
@@ -30605,9 +31357,11 @@ class CreateLocalDatastoreResponse {
 	}
 }
 
-class RemoveDatastoreResponse {}
+class RemoveDatastoreResponse {
+}
 
-class ConfigureDatastorePrincipalResponse {}
+class ConfigureDatastorePrincipalResponse {
+}
 
 class QueryUnresolvedVmfsVolumesResponse {
 	public $returnval; //HostUnresolvedVmfsVolume
@@ -30625,7 +31379,8 @@ class ResignatureUnresolvedVmfsVolume_TaskResponse {
 	}
 }
 
-class UpdateDateTimeConfigResponse {}
+class UpdateDateTimeConfigResponse {
+}
 
 class QueryAvailableTimeZonesResponse {
 	public $returnval; //HostDateTimeSystemTimeZone
@@ -30643,9 +31398,11 @@ class QueryDateTimeResponse {
 	}
 }
 
-class UpdateDateTimeResponse {}
+class UpdateDateTimeResponse {
+}
 
-class RefreshDateTimeSystemResponse {}
+class RefreshDateTimeSystemResponse {
+}
 
 class QueryAvailablePartitionResponse {
 	public $returnval; //HostDiagnosticPartition
@@ -30655,7 +31412,8 @@ class QueryAvailablePartitionResponse {
 	}
 }
 
-class SelectActivePartitionResponse {}
+class SelectActivePartitionResponse {
+}
 
 class QueryPartitionCreateOptionsResponse {
 	public $returnval; //HostDiagnosticPartitionCreateOption
@@ -30673,21 +31431,29 @@ class QueryPartitionCreateDescResponse {
 	}
 }
 
-class CreateDiagnosticPartitionResponse {}
+class CreateDiagnosticPartitionResponse {
+}
 
-class EsxAgentHostManagerUpdateConfigResponse {}
+class EsxAgentHostManagerUpdateConfigResponse {
+}
 
-class UpdateDefaultPolicyResponse {}
+class UpdateDefaultPolicyResponse {
+}
 
-class EnableRulesetResponse {}
+class EnableRulesetResponse {
+}
 
-class DisableRulesetResponse {}
+class DisableRulesetResponse {
+}
 
-class UpdateRulesetResponse {}
+class UpdateRulesetResponse {
+}
 
-class RefreshFirewallResponse {}
+class RefreshFirewallResponse {
+}
 
-class ResetFirmwareToFactoryDefaultsResponse {}
+class ResetFirmwareToFactoryDefaultsResponse {
+}
 
 class BackupFirmwareConfigurationResponse {
 	public $returnval; //string
@@ -30705,11 +31471,14 @@ class QueryFirmwareConfigUploadURLResponse {
 	}
 }
 
-class RestoreFirmwareConfigurationResponse {}
+class RestoreFirmwareConfigurationResponse {
+}
 
-class RefreshHealthStatusSystemResponse {}
+class RefreshHealthStatusSystemResponse {
+}
 
-class ResetSystemHealthInfoResponse {}
+class ResetSystemHealthInfoResponse {
+}
 
 class HostImageConfigGetAcceptanceResponse {
 	public $returnval; //string
@@ -30727,7 +31496,8 @@ class HostImageConfigGetProfileResponse {
 	}
 }
 
-class UpdateHostImageAcceptanceLevelResponse {}
+class UpdateHostImageAcceptanceLevelResponse {
+}
 
 class QueryVnicStatusResponse {
 	public $returnval; //IscsiStatus
@@ -30761,9 +31531,11 @@ class QueryCandidateNicsResponse {
 	}
 }
 
-class BindVnicResponse {}
+class BindVnicResponse {
+}
 
-class UnbindVnicResponse {}
+class UnbindVnicResponse {
+}
 
 class QueryMigrationDependenciesResponse {
 	public $returnval; //IscsiMigrationDependency
@@ -30781,7 +31553,8 @@ class QueryModulesResponse {
 	}
 }
 
-class UpdateModuleOptionStringResponse {}
+class UpdateModuleOptionStringResponse {
+}
 
 class QueryConfiguredModuleOptionStringResponse {
 	public $returnval; //string
@@ -30791,23 +31564,32 @@ class QueryConfiguredModuleOptionStringResponse {
 	}
 }
 
-class CreateUserResponse {}
+class CreateUserResponse {
+}
 
-class UpdateUserResponse {}
+class UpdateUserResponse {
+}
 
-class CreateGroupResponse {}
+class CreateGroupResponse {
+}
 
-class RemoveUserResponse {}
+class RemoveUserResponse {
+}
 
-class RemoveGroupResponse {}
+class RemoveGroupResponse {
+}
 
-class AssignUserToGroupResponse {}
+class AssignUserToGroupResponse {
+}
 
-class UnassignUserFromGroupResponse {}
+class UnassignUserFromGroupResponse {
+}
 
-class ReconfigureServiceConsoleReservationResponse {}
+class ReconfigureServiceConsoleReservationResponse {
+}
 
-class ReconfigureVirtualMachineReservationResponse {}
+class ReconfigureVirtualMachineReservationResponse {
+}
 
 class UpdateNetworkConfigResponse {
 	public $returnval; //HostNetworkConfigResult
@@ -30817,27 +31599,38 @@ class UpdateNetworkConfigResponse {
 	}
 }
 
-class UpdateDnsConfigResponse {}
+class UpdateDnsConfigResponse {
+}
 
-class UpdateIpRouteConfigResponse {}
+class UpdateIpRouteConfigResponse {
+}
 
-class UpdateConsoleIpRouteConfigResponse {}
+class UpdateConsoleIpRouteConfigResponse {
+}
 
-class UpdateIpRouteTableConfigResponse {}
+class UpdateIpRouteTableConfigResponse {
+}
 
-class AddVirtualSwitchResponse {}
+class AddVirtualSwitchResponse {
+}
 
-class RemoveVirtualSwitchResponse {}
+class RemoveVirtualSwitchResponse {
+}
 
-class UpdateVirtualSwitchResponse {}
+class UpdateVirtualSwitchResponse {
+}
 
-class AddPortGroupResponse {}
+class AddPortGroupResponse {
+}
 
-class RemovePortGroupResponse {}
+class RemovePortGroupResponse {
+}
 
-class UpdatePortGroupResponse {}
+class UpdatePortGroupResponse {
+}
 
-class UpdatePhysicalNicLinkSpeedResponse {}
+class UpdatePhysicalNicLinkSpeedResponse {
+}
 
 class QueryNetworkHintResponse {
 	public $returnval; //PhysicalNicHintInfo
@@ -30855,9 +31648,11 @@ class AddVirtualNicResponse {
 	}
 }
 
-class RemoveVirtualNicResponse {}
+class RemoveVirtualNicResponse {
+}
 
-class UpdateVirtualNicResponse {}
+class UpdateVirtualNicResponse {
+}
 
 class AddServiceConsoleVirtualNicResponse {
 	public $returnval; //string
@@ -30867,13 +31662,17 @@ class AddServiceConsoleVirtualNicResponse {
 	}
 }
 
-class RemoveServiceConsoleVirtualNicResponse {}
+class RemoveServiceConsoleVirtualNicResponse {
+}
 
-class UpdateServiceConsoleVirtualNicResponse {}
+class UpdateServiceConsoleVirtualNicResponse {
+}
 
-class RestartServiceConsoleVirtualNicResponse {}
+class RestartServiceConsoleVirtualNicResponse {
+}
 
-class RefreshNetworkSystemResponse {}
+class RefreshNetworkSystemResponse {
+}
 
 class CheckHostPatch_TaskResponse {
 	public $returnval; //ManagedObjectReference
@@ -30939,27 +31738,38 @@ class QueryHostPatch_TaskResponse {
 	}
 }
 
-class RefreshResponse {}
+class RefreshResponse {
+}
 
-class UpdatePassthruConfigResponse {}
+class UpdatePassthruConfigResponse {
+}
 
-class ConfigurePowerPolicyResponse {}
+class ConfigurePowerPolicyResponse {
+}
 
-class UpdateServicePolicyResponse {}
+class UpdateServicePolicyResponse {
+}
 
-class StartServiceResponse {}
+class StartServiceResponse {
+}
 
-class StopServiceResponse {}
+class StopServiceResponse {
+}
 
-class RestartServiceResponse {}
+class RestartServiceResponse {
+}
 
-class UninstallServiceResponse {}
+class UninstallServiceResponse {
+}
 
-class RefreshServicesResponse {}
+class RefreshServicesResponse {
+}
 
-class ReconfigureSnmpAgentResponse {}
+class ReconfigureSnmpAgentResponse {
+}
 
-class SendTestNotificationResponse {}
+class SendTestNotificationResponse {
+}
 
 class RetrieveDiskPartitionInfoResponse {
 	public $returnval; //HostDiskPartitionInfo
@@ -30985,7 +31795,8 @@ class ComputeDiskPartitionInfoForResizeResponse {
 	}
 }
 
-class UpdateDiskPartitionsResponse {}
+class UpdateDiskPartitionsResponse {
+}
 
 class FormatVmfsResponse {
 	public $returnval; //HostVmfsVolume
@@ -30995,19 +31806,26 @@ class FormatVmfsResponse {
 	}
 }
 
-class MountVmfsVolumeResponse {}
+class MountVmfsVolumeResponse {
+}
 
-class UnmountVmfsVolumeResponse {}
+class UnmountVmfsVolumeResponse {
+}
 
-class RescanVmfsResponse {}
+class RescanVmfsResponse {
+}
 
-class AttachVmfsExtentResponse {}
+class AttachVmfsExtentResponse {
+}
 
-class ExpandVmfsExtentResponse {}
+class ExpandVmfsExtentResponse {
+}
 
-class UpgradeVmfsResponse {}
+class UpgradeVmfsResponse {
+}
 
-class UpgradeVmLayoutResponse {}
+class UpgradeVmLayoutResponse {
+}
 
 class QueryUnresolvedVmfsVolumeResponse {
 	public $returnval; //HostUnresolvedVmfsVolume
@@ -31025,41 +31843,59 @@ class ResolveMultipleUnresolvedVmfsVolumesResponse {
 	}
 }
 
-class UnmountForceMountedVmfsVolumeResponse {}
+class UnmountForceMountedVmfsVolumeResponse {
+}
 
-class RescanHbaResponse {}
+class RescanHbaResponse {
+}
 
-class RescanAllHbaResponse {}
+class RescanAllHbaResponse {
+}
 
-class UpdateSoftwareInternetScsiEnabledResponse {}
+class UpdateSoftwareInternetScsiEnabledResponse {
+}
 
-class UpdateInternetScsiDiscoveryPropertiesResponse {}
+class UpdateInternetScsiDiscoveryPropertiesResponse {
+}
 
-class UpdateInternetScsiAuthenticationPropertiesResponse {}
+class UpdateInternetScsiAuthenticationPropertiesResponse {
+}
 
-class UpdateInternetScsiDigestPropertiesResponse {}
+class UpdateInternetScsiDigestPropertiesResponse {
+}
 
-class UpdateInternetScsiAdvancedOptionsResponse {}
+class UpdateInternetScsiAdvancedOptionsResponse {
+}
 
-class UpdateInternetScsiIPPropertiesResponse {}
+class UpdateInternetScsiIPPropertiesResponse {
+}
 
-class UpdateInternetScsiNameResponse {}
+class UpdateInternetScsiNameResponse {
+}
 
-class UpdateInternetScsiAliasResponse {}
+class UpdateInternetScsiAliasResponse {
+}
 
-class AddInternetScsiSendTargetsResponse {}
+class AddInternetScsiSendTargetsResponse {
+}
 
-class RemoveInternetScsiSendTargetsResponse {}
+class RemoveInternetScsiSendTargetsResponse {
+}
 
-class AddInternetScsiStaticTargetsResponse {}
+class AddInternetScsiStaticTargetsResponse {
+}
 
-class RemoveInternetScsiStaticTargetsResponse {}
+class RemoveInternetScsiStaticTargetsResponse {
+}
 
-class EnableMultipathPathResponse {}
+class EnableMultipathPathResponse {
+}
 
-class DisableMultipathPathResponse {}
+class DisableMultipathPathResponse {
+}
 
-class SetMultipathLunPolicyResponse {}
+class SetMultipathLunPolicyResponse {
+}
 
 class QueryPathSelectionPolicyOptionsResponse {
 	public $returnval; //HostPathSelectionPolicyOption
@@ -31077,23 +31913,32 @@ class QueryStorageArrayTypePolicyOptionsResponse {
 	}
 }
 
-class UpdateScsiLunDisplayNameResponse {}
+class UpdateScsiLunDisplayNameResponse {
+}
 
-class DetachScsiLunResponse {}
+class DetachScsiLunResponse {
+}
 
-class AttachScsiLunResponse {}
+class AttachScsiLunResponse {
+}
 
-class RefreshStorageSystemResponse {}
+class RefreshStorageSystemResponse {
+}
 
-class DiscoverFcoeHbasResponse {}
+class DiscoverFcoeHbasResponse {
+}
 
-class MarkForRemovalResponse {}
+class MarkForRemovalResponse {
+}
 
-class UpdateIpConfigResponse {}
+class UpdateIpConfigResponse {
+}
 
-class SelectVnicResponse {}
+class SelectVnicResponse {
+}
 
-class DeselectVnicResponse {}
+class DeselectVnicResponse {
+}
 
 class QueryNetConfigResponse {
 	public $returnval; //VirtualNicManagerNetConfig
@@ -31103,9 +31948,11 @@ class QueryNetConfigResponse {
 	}
 }
 
-class SelectVnicForNicTypeResponse {}
+class SelectVnicForNicTypeResponse {
+}
 
-class DeselectVnicForNicTypeResponse {}
+class DeselectVnicForNicTypeResponse {
+}
 
 class QueryOptionsResponse {
 	public $returnval; //OptionValue
@@ -31115,7 +31962,8 @@ class QueryOptionsResponse {
 	}
 }
 
-class UpdateOptionsResponse {}
+class UpdateOptionsResponse {
+}
 
 class CheckCompliance_TaskResponse {
 	public $returnval; //ManagedObjectReference
@@ -31133,7 +31981,8 @@ class QueryComplianceStatusResponse {
 	}
 }
 
-class ClearComplianceStatusResponse {}
+class ClearComplianceStatusResponse {
+}
 
 class QueryExpressionMetadataResponse {
 	public $returnval; //ProfileExpressionMetadata
@@ -31151,11 +32000,14 @@ class RetrieveDescriptionResponse {
 	}
 }
 
-class DestroyProfileResponse {}
+class DestroyProfileResponse {
+}
 
-class AssociateProfileResponse {}
+class AssociateProfileResponse {
+}
 
-class DissociateProfileResponse {}
+class DissociateProfileResponse {
+}
 
 class CheckProfileCompliance_TaskResponse {
 	public $returnval; //ManagedObjectReference
@@ -31197,11 +32049,14 @@ class FindAssociatedProfileResponse {
 	}
 }
 
-class UpdateClusterProfileResponse {}
+class UpdateClusterProfileResponse {
+}
 
-class UpdateReferenceHostResponse {}
+class UpdateReferenceHostResponse {
+}
 
-class UpdateHostProfileResponse {}
+class UpdateHostProfileResponse {
+}
 
 class ExecuteHostProfileResponse {
 	public $returnval; //ProfileExecuteResult
@@ -31291,11 +32146,14 @@ class QueryAnswerFileStatusResponse {
 	}
 }
 
-class RemoveScheduledTaskResponse {}
+class RemoveScheduledTaskResponse {
+}
 
-class ReconfigureScheduledTaskResponse {}
+class ReconfigureScheduledTaskResponse {
+}
 
-class RunScheduledTaskResponse {}
+class RunScheduledTaskResponse {
+}
 
 class CreateScheduledTaskResponse {
 	public $returnval; //ManagedObjectReference
@@ -31361,9 +32219,11 @@ class ResetListViewResponse {
 	}
 }
 
-class ResetListViewFromViewResponse {}
+class ResetListViewFromViewResponse {
+}
 
-class DestroyViewResponse {}
+class DestroyViewResponse {
+}
 
 class CreateInventoryViewResponse {
 	public $returnval; //ManagedObjectReference
@@ -31413,7 +32273,8 @@ class RemoveSnapshot_TaskResponse {
 	}
 }
 
-class RenameSnapshotResponse {}
+class RenameSnapshotResponse {
+}
 
 class CheckCompatibility_TaskResponse {
 	public $returnval; //ManagedObjectReference
@@ -31447,7 +32308,8 @@ class CheckRelocate_TaskResponse {
 	}
 }
 
-class ValidateCredentialsInGuestResponse {}
+class ValidateCredentialsInGuestResponse {
+}
 
 class AcquireCredentialsInGuestResponse {
 	public $returnval; //GuestAuthentication
@@ -31457,17 +32319,23 @@ class AcquireCredentialsInGuestResponse {
 	}
 }
 
-class ReleaseCredentialsInGuestResponse {}
+class ReleaseCredentialsInGuestResponse {
+}
 
-class MakeDirectoryInGuestResponse {}
+class MakeDirectoryInGuestResponse {
+}
 
-class DeleteFileInGuestResponse {}
+class DeleteFileInGuestResponse {
+}
 
-class DeleteDirectoryInGuestResponse {}
+class DeleteDirectoryInGuestResponse {
+}
 
-class MoveDirectoryInGuestResponse {}
+class MoveDirectoryInGuestResponse {
+}
 
-class MoveFileInGuestResponse {}
+class MoveFileInGuestResponse {
+}
 
 class CreateTemporaryFileInGuestResponse {
 	public $returnval; //string
@@ -31493,7 +32361,8 @@ class ListFilesInGuestResponse {
 	}
 }
 
-class ChangeFileAttributesInGuestResponse {}
+class ChangeFileAttributesInGuestResponse {
+}
 
 class InitiateFileTransferFromGuestResponse {
 	public $returnval; //FileTransferInformation
@@ -31527,7 +32396,8 @@ class ListProcessesInGuestResponse {
 	}
 }
 
-class TerminateProcessInGuestResponse {}
+class TerminateProcessInGuestResponse {
+}
 
 class ReadEnvironmentVariableInGuestResponse {
 	public $returnval; //string
@@ -31537,7 +32407,8 @@ class ReadEnvironmentVariableInGuestResponse {
 	}
 }
 
-class DestroyPropertyFilterResponse {}
+class DestroyPropertyFilterResponse {
+}
 
 class CreateFilterResponse {
 	public $returnval; //ManagedObjectReference
@@ -31571,7 +32442,8 @@ class WaitForUpdatesResponse {
 	}
 }
 
-class CancelWaitForUpdatesResponse {}
+class CancelWaitForUpdatesResponse {
+}
 
 class WaitForUpdatesExResponse {
 	public $returnval; //UpdateSet
@@ -31597,7 +32469,8 @@ class ContinueRetrievePropertiesExResponse {
 	}
 }
 
-class CancelRetrievePropertiesExResponse {}
+class CancelRetrievePropertiesExResponse {
+}
 
 class CreatePropertyCollectorResponse {
 	public $returnval; //ManagedObjectReference
@@ -31607,4 +32480,5 @@ class CreatePropertyCollectorResponse {
 	}
 }
 
-class DestroyPropertyCollectorResponse {}
+class DestroyPropertyCollectorResponse {
+}
