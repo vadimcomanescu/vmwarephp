@@ -30,6 +30,4 @@ class SoapClientTest extends PHPUnit_Framework_TestCase {
 	private function aClassMap() {
 		return array('klass' => 'klass');
 	}
-
-
 }
