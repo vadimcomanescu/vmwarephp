@@ -2,13 +2,18 @@
 namespace Vmwarephp\Factory;
 
 class ManagedObject {
-	private $classMapper;
+	private $wsdlClassMapper;
 
 	function __construct(\Vmwarephp\WsdlClassMapper $classMapper = null) {
-		$this->classMapper = $classMapper ? : new \Vmwarephp\WsdlClassMapper;
+		$this->wsdlClassMapper = $classMapper ? : new \Vmwarephp\WsdlClassMapper;
 	}
 
-	function make(\Vmwarephp\Service $service, \Vmwarephp\ManagedObjectReference $reference) {
+	function make(\Vmwarephp\Service $service, \ManagedObjectReference $reference) {
+		$classMap = $this->wsdlClassMapper->getClassMap();
+		if (array_key_exists($reference->type, $classMap)) {
+			$className = $classMap[$reference->type];
+			return new $className($service, $reference);
+		}
 		return new \Vmwarephp\ManagedObject($service, $reference);
 	}
 
@@ -17,6 +22,6 @@ class ManagedObject {
 	}
 
 	function makeReference($id, $type) {
-		return new \Vmwarephp\ManagedObjectReference($id, $type);
+		return new \ManagedObjectReference($id, $type);
 	}
 }
