@@ -1,0 +1,10 @@
+<phpunit bootstrap="BootStrap.php">
+    <listeners>
+        <listener class="\Mockery\Adapter\Phpunit\TestListener"
+                  file="/usr/local/lib/php/pear/share/pear/Mockery/Adapter/Phpunit/TestListener.php"></listener>
+    </listeners>
+    <php>
+        <ini name="memory_limit" value="2048M"/>
+        <ini name="output_buffering" value="off"/>
+    </php>
+</phpunit>
