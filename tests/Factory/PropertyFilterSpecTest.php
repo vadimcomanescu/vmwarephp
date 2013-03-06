@@ -14,7 +14,7 @@ class PropertyFilterSpecTest extends PHPUnit_Framework_TestCase {
 		$managedObjectType = 'VirtualMachine';
 
 		$propSet = array(new \PropertySpec($managedObjectType, false, $requestedProperties));
-		$objectSet = array(new \ObjectSpec(new \ManagedObjectReference($referenceId, $managedObjectType), true, array()));
+		$objectSet = array(new \ObjectSpec(new \ManagedObjectReference($referenceId, $managedObjectType), false, array()));
 
 		$expectedPropertyFilterSpec = new \PropertyFilterSpec($propSet, $objectSet);
 		$this->assertEquals($expectedPropertyFilterSpec, $this->factory->makeForOneManagedObject($managedObjectType, $referenceId, $requestedProperties));
@@ -26,7 +26,7 @@ class PropertyFilterSpecTest extends PHPUnit_Framework_TestCase {
 		$referenceId = 'vm-151';
 
 		$propSet = array(new \PropertySpec($managedObjectType, true));
-		$objectSet = array(new \ObjectSpec(new \ManagedObjectReference($referenceId, $managedObjectType), true, array()));
+		$objectSet = array(new \ObjectSpec(new \ManagedObjectReference($referenceId, $managedObjectType), false, array()));
 
 		$expectedPropertyFilterSpec = new \PropertyFilterSpec($propSet, $objectSet);
 
@@ -41,13 +41,13 @@ class PropertyFilterSpecTest extends PHPUnit_Framework_TestCase {
 
 		$traversalSpecs = array(new \TraversalSpec('traverseNetwork', $managedObjectType, 'network', false));
 		$propSet = array(new \PropertySpec('Network', false, array('configStatus')), new \PropertySpec($managedObjectType, false, array('configStatus')));
-		$objectSet = array(new \ObjectSpec(new \ManagedObjectReference($referenceId, $managedObjectType), true, $traversalSpecs));
+		$objectSet = array(new \ObjectSpec(new \ManagedObjectReference($referenceId, $managedObjectType), false, $traversalSpecs));
 
 		$expectedPropertyFilterSpec = new \PropertyFilterSpec($propSet, $objectSet);
 		$this->assertEquals($expectedPropertyFilterSpec, $this->factory->makeForOneManagedObject($managedObjectType, $referenceId, $requestedProperties));
 	}
 
-	function testMakesAPropertyFilterSpecForTraversingAllInventoryForAGivenManagedObjectAndItsProperties() {
+	function testMakesAPropertyFilterSpecForTraversingAllInventoryForAGivenManagedObjectTypeAndItsProperties() {
 		$requestedProperties = array('configStatus');
 		$managedObjectType = 'VirtualMachine';
 

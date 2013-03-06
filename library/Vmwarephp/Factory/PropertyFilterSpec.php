@@ -6,7 +6,7 @@ class PropertyFilterSpec {
 
 	function makeForOneManagedObject($managedObjectType, $referenceId, $propertiesToCollect) {
 		$sets = $this->makeTraversalAndPropSets($managedObjectType, $propertiesToCollect);
-		return new \PropertyFilterSpec($sets['propSet'], $this->makeObjectSet($managedObjectType, $referenceId, $sets['traversalSet']));
+		return new \PropertyFilterSpec($sets['propSet'], $this->makeObjectSet($managedObjectType, $referenceId, false, $sets['traversalSet']));
 	}
 
 	function makeForTraversingAllInventory($managedObjectType, $propertiesToCollect, \Vmwarephp\Service $service) {
@@ -14,7 +14,7 @@ class PropertyFilterSpec {
 		$sets = $this->makeTraversalAndPropSets($managedObjectType, $propertiesToCollect);
 		$traversalSpec = $this->makeTraversalSpec('view', 'ContainerView');
 		$traversalSpec->selectSet = $sets['traversalSet'];
-		return new \PropertyFilterSpec($sets['propSet'], $this->makeObjectSet($containerView->type, $containerView->_, $traversalSpec));
+		return new \PropertyFilterSpec($sets['propSet'], $this->makeObjectSet($containerView->type, $containerView->_, true, $traversalSpec));
 	}
 
 	private function makeTraversalAndPropSets($managedObjectType, $propertiesToCollect) {
@@ -58,8 +58,8 @@ class PropertyFilterSpec {
 		return !is_numeric($key);
 	}
 
-	private function makeObjectSet($managedObjectType, $referenceId, $traversalSpecsSelectSet = array()) {
-		return array(new \ObjectSpec(new \ManagedObjectReference($referenceId, $managedObjectType), true, $traversalSpecsSelectSet));
+	private function makeObjectSet($managedObjectType, $referenceId, $skip, $traversalSpecsSelectSet) {
+		return array(new \ObjectSpec(new \ManagedObjectReference($referenceId, $managedObjectType), $skip, $traversalSpecsSelectSet ? : array()));
 	}
 
 	private function checkTraversalPropertyFormat($propertiesToCollect, $key) {
