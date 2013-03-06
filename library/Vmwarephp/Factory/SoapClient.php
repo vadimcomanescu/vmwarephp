@@ -25,6 +25,10 @@ class SoapClient {
 		return $soapClient;
 	}
 
+	function getClientClassMap() {
+		return $this->wsdlClassMapper->getClassMap();
+	}
+
 	protected function makeRequestsLocation(\Vmwarephp\Vhost $vhost) {
 		return 'https://' . $vhost->host . '/sdk';
 	}
