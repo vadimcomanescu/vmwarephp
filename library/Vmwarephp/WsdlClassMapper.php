@@ -3,7 +3,6 @@ namespace Vmwarephp;
 
 class WsdlClassMapper {
 	private $classDefinitionsFilePath;
-	private $classMap;
 	private $useClassMapCaching = true;
 
 	function __construct($classDefinitionsFilePath = null) {
@@ -11,26 +10,23 @@ class WsdlClassMapper {
 	}
 
 	function getClassMap() {
-		if (!empty($this->classMap)) return $this->classMap;
-		$this->initializeClassMap();
-		return $this->classMap;
+		$classMap = $this->readClassMapFromCache();
+		if ($classMap) {
+			return $classMap;
+		}
+		$classMap = $this->generateClassMap();
+		$this->cacheClassMap($classMap);
+		return $classMap;
 	}
 
 	function configureClassMapCaching($useCaching = true) {
 		$this->useClassMapCaching = $useCaching;
 	}
 
-	private function initializeClassMapFromCache() {
+	private function readClassMapFromCache() {
 		$cacheFilePath = $this->makeCacheFilePath();
 		if (!file_exists($cacheFilePath) || !$this->useClassMapCaching) return;
-		$this->classMap = unserialize(file_get_contents($cacheFilePath));
-	}
-
-	private function initializeClassMap() {
-		$this->initializeClassMapFromCache();
-		if ($this->classMap) return;
-		$this->classMap = $this->generateClassMap();
-		$this->cacheClassMap();
+		return unserialize(file_get_contents($cacheFilePath));
 	}
 
 	private function generateClassMap() {
@@ -64,9 +60,9 @@ class WsdlClassMapper {
 		return file_get_contents($this->classDefinitionsFilePath);
 	}
 
-	private function cacheClassMap() {
+	private function cacheClassMap($classMap) {
 		if (!$this->useClassMapCaching) return;
-		file_put_contents($this->makeCacheFilePath(), serialize($this->classMap));
+		file_put_contents($this->makeCacheFilePath(), serialize($classMap));
 	}
 
 	private function makeCacheFilePath() {
