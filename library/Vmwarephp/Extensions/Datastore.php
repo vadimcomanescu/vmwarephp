@@ -3,17 +3,6 @@ namespace Vmwarephp\Extensions;
 
 class Datastore extends \Vmwarephp\ManagedObject {
 
-	function expandToMaxSize() {
-		try {
-			$this->RefreshDatastore();
-			if ($this->isANfsDatastore()) return;
-			foreach ($this->getConnectedHosts() as $host)
-				$host->expandDatastore($this);
-		} catch (\Exception $e) {
-			return;
-		}
-	}
-
 	function getConnectedHosts() {
 		$hosts = array();
 		foreach ($this->host as $hostMount)
