@@ -31,7 +31,8 @@ class Datastore extends \Vmwarephp\ManagedObject {
 	function getVirtualMachinesInstalledOnThisDatastore() {
 		$vms = array();
 		foreach ($this->getVirtualMachinesReferencingThisDatastore() as $vm)
-			if ($vm->getParentDatastoreName() == $this->name) $vms[] = $vm;
+			if ($vm->getParentDatastoreName() == $this->name)
+				$vms[] = $vm;
 		return $vms;
 	}
 
