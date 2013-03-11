@@ -40,13 +40,15 @@ class TypeConverter {
 	}
 
 	private function convertEachValueOfTheArray($value) {
-		foreach ($value as $key => $val) $value[$key] = $this->convert($val);
+		foreach ($value as $key => $val)
+			$value[$key] = $this->convert($val);
 		return $value;
 	}
 
 	private function convertDataObject($value) {
 		$objProperties = get_object_vars($value);
-		foreach ($objProperties as $propertyName => $propertyValue) $value->$propertyName = $this->convert($propertyValue);
+		foreach ($objProperties as $propertyName => $propertyValue)
+			$value->$propertyName = $this->convert($propertyValue);
 		return $value;
 	}
 
