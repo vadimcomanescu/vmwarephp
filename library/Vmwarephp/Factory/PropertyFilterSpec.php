@@ -59,7 +59,7 @@ class PropertyFilterSpec {
 	}
 
 	private function makeObjectSet($managedObjectType, $referenceId, $skip, $traversalSpecsSelectSet) {
-		return array(new \ObjectSpec(new \ManagedObjectReference($referenceId, $managedObjectType), $skip, $traversalSpecsSelectSet ? : array()));
+		return array(new \ObjectSpec(new \ManagedObjectReference($referenceId, $managedObjectType), $skip, empty($traversalSpecsSelectSet) ? null : $traversalSpecsSelectSet));
 	}
 
 	private function checkTraversalPropertyFormat($propertiesToCollect, $key) {

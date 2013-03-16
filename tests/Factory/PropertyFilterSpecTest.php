@@ -14,7 +14,7 @@ class PropertyFilterSpecTest extends PHPUnit_Framework_TestCase {
 		$managedObjectType = 'VirtualMachine';
 
 		$propSet = array(new \PropertySpec($managedObjectType, false, $requestedProperties));
-		$objectSet = array(new \ObjectSpec(new \ManagedObjectReference($referenceId, $managedObjectType), false, array()));
+		$objectSet = array(new \ObjectSpec(new \ManagedObjectReference($referenceId, $managedObjectType), false, null));
 
 		$expectedPropertyFilterSpec = new \PropertyFilterSpec($propSet, $objectSet);
 		$this->assertEquals($expectedPropertyFilterSpec, $this->factory->makeForOneManagedObject($managedObjectType, $referenceId, $requestedProperties));
@@ -26,7 +26,7 @@ class PropertyFilterSpecTest extends PHPUnit_Framework_TestCase {
 		$referenceId = 'vm-151';
 
 		$propSet = array(new \PropertySpec($managedObjectType, true));
-		$objectSet = array(new \ObjectSpec(new \ManagedObjectReference($referenceId, $managedObjectType), false, array()));
+		$objectSet = array(new \ObjectSpec(new \ManagedObjectReference($referenceId, $managedObjectType), false, null));
 
 		$expectedPropertyFilterSpec = new \PropertyFilterSpec($propSet, $objectSet);
 
