@@ -27,6 +27,6 @@ the following lines to your composer.json:
 
     {
         "require": {
-            "mockery/mockery": "dev-master"
+            "vmwarephp/vmwarephp": "dev-master"
         }
     }
