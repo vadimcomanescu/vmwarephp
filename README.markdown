@@ -58,6 +58,11 @@ its properties prefetched:
 
     $vhost = new \Vmwarephp\Vhost('vcenter:443', 'Admin', 'password');
     $datastore = $vhost->findOneManagedObject('Datastore', 'datastore-182', array());
+
+A managed object can also be searched by using its name:
+
+	$vhost = new \Vmwarephp\Vhost('vcenter:443', 'Admin', 'password');
+    $datastore = $vhost->findManagedObjectByName('VirtualMachine', 'myvmname', array('configStatus'));
     
 Managed objects can be a generic managed object represented by \Vmwarephp\ManagedObject or a user defined extension of a
 managed object defined in Extensions directory. Each managed object depending on its managed object reference type ('VirtualMachine',

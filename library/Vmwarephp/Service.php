@@ -34,6 +34,15 @@ class Service {
 		return $propertyCollector->collectPropertiesFor($objectType, $referenceId, $propertiesToCollect);
 	}
 
+	function findManagedObjectByName($objectType, $name, $propertiesToCollect = array()) {
+		$propertiesToCollect = array_merge($propertiesToCollect, array('name'));
+		$allObjects = $this->findAllManagedObjects($objectType, $propertiesToCollect);
+		$objects = array_filter($allObjects, function ($object) use ($name) {
+			return $object->name == $name;
+		});
+		return empty($objects) ? null : end($objects);
+	}
+
 	function connect() {
 		if ($this->session) return $this->session;
 		$sessionManager = $this->getSessionManager();
