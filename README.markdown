@@ -43,9 +43,14 @@ Usage
 Vmwarephp aims to provide the least boilerplate code possibile for handling vSphere objects. The ESX/vCenter on which
 the operations are performed is represented by a \Vmwarephp\Vhost object. A Vhost object provides two finder methods to 
 obtain server side ManagedObjects. The following example describes a way to collect all virtual machines from a ESX/vCenter
-with all their properties pre-fetched:
+with their config status prefetched:
     
     $vhost = new \Vmwarephp\Vhost('vcenter:443', 'Admin', 'password');
+    $virtualMachines = $vhost->findAllManagedObjects('VirtualMachine', array('configStatus'));
+
+For collecting all virtual machines with all their properties pre-fetched, which normally is a very expensive operation
+considering that a lot of objects need to be traversed you can do it in the following way:
+
     $virtualMachines = $vhost->findAllManagedObjects('VirtualMachine', 'all');
 
 You can find a given object using its server side id. For example finding a datastore with id datastore-182 with none of
