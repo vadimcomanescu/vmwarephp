@@ -45,7 +45,8 @@ class WsdlClassMapper {
 		$classes = array();
 		foreach (scandir(__DIR__ . '/Extensions/') as $fileName) {
 			if (in_array($fileName, array('.', '..'))) continue;
-			$className = explode('.', $fileName)[0];
+			$classNameComponents = explode('.', $fileName);
+			$className = $classNameComponents[0];
 			$classes[$className] = '\\Vmwarephp\\Extensions\\' . $className;
 		}
 		return $classes;
