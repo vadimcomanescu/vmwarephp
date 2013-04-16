@@ -59,7 +59,7 @@ its properties prefetched:
     $vhost = new \Vmwarephp\Vhost('vcenter:443', 'Admin', 'password');
     $datastore = $vhost->findOneManagedObject('Datastore', 'datastore-182', array());
 
-A managed object can also be searched by using its name:
+A managed object can also be found by name:
 
 	$vhost = new \Vmwarephp\Vhost('vcenter:443', 'Admin', 'password');
     $datastore = $vhost->findManagedObjectByName('VirtualMachine', 'myvmname', array('configStatus'));
