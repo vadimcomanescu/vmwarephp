@@ -7,6 +7,7 @@ class WsdlClassMapper {
 
 	function __construct($classDefinitionsFilePath = null) {
 		$this->classDefinitionsFilePath = $classDefinitionsFilePath ? : dirname(__FILE__) . '/TypeDefinitions.inc';
+		require_once $this->classDefinitionsFilePath;
 	}
 
 	function getClassMap() {
@@ -63,7 +64,9 @@ class WsdlClassMapper {
 
 	private function cacheClassMap($classMap) {
 		if (!$this->useClassMapCaching) return;
-		file_put_contents($this->makeCacheFilePath(), serialize($classMap));
+		if (!file_put_contents($this->makeCacheFilePath(), serialize($classMap))) {
+			throw new Exception('\\Vmwarephp\\WsdlClassMapper is configured to cache the class map but was not able to. Check the permissions on the cache directory.');
+		}
 	}
 
 	private function makeCacheFilePath() {
