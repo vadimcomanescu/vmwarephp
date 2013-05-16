@@ -7,7 +7,6 @@ class WsdlClassMapper {
 
 	function __construct($classDefinitionsFilePath = null) {
 		$this->classDefinitionsFilePath = $classDefinitionsFilePath ? : dirname(__FILE__) . '/TypeDefinitions.inc';
-		require_once $this->classDefinitionsFilePath;
 	}
 
 	function getClassMap() {
