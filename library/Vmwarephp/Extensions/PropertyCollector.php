@@ -41,8 +41,9 @@ class PropertyCollector extends \Vmwarephp\ManagedObject {
 
 	private function findRequestedObjectInCollectionResult($collectionResult, $managedObjectType) {
 		if (is_object($collectionResult)) return $collectionResult;
-		foreach ($collectionResult as $managedObject)
-			if (strpos(get_class($managedObject), $managedObjectType) !== false) return $managedObject;
+		foreach ($collectionResult as $managedObject) {
+			if ($managedObject->getReferenceType() == $managedObjectType) return $managedObject;
+		}
 		throw new \Exception('Cannot find the object we requested to collect the properties for in servers response!');
 	}
 
