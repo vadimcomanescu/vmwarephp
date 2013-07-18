@@ -16,7 +16,6 @@ class SoapClient extends \SoapClient {
 	 * php bug #45404
 	 * */
 	private function appendXsiTypeForExtendedDatastructures($request) {
-		$request = str_replace("xsi:", "", $request);
-		return str_replace(array("type=\"ns1:TraversalSpec\"", '<ns1:selectSet />'), array("xsi:type=\"ns1:TraversalSpec\"", ''), $request);
+		return $request = str_replace(array("xsi:type=\"ns1:TraversalSpec\"", '<ns1:selectSet />'), array("xsi:type=\"ns1:TraversalSpec\"", ''), $request);
 	}
 }
