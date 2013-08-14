@@ -65,7 +65,23 @@ class Service {
 
 	private function makeSoapCall($method, $soapMessage) {
 		$this->soapClient->_classmap = $this->clientFactory->getClientClassMap();
-		$result = $this->soapClient->$method($soapMessage);
+		try {
+			$result = $this->soapClient->$method($soapMessage);
+		} catch (\SoapFault $sf) {
+			$this->soapClient->_classmap = null;
+			$faults = array();
+			foreach ($sf->detail as $fault) {
+				$faults[] = "{$fault->enc_stype}: ".print_r($fault->enc_value, true);
+			}
+			$message = "{$sf->faultcode}: ";
+			if ($sf->string) {
+				$message .= "{$sf->string} ";
+			}
+			if (count($faults)) {
+				$message .= implode(', ', $faults);
+			}
+			throw new \Exception($message);
+		}
 		$this->soapClient->_classmap = null;
 		return $this->convertResponse($result);
 	}
