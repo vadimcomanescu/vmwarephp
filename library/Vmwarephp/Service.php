@@ -97,7 +97,7 @@ class Service {
 	}
 
 	private function isMethodAPropertyRetrieval($calledMethod) {
-		return preg_match('/^get/', strtolower($calledMethod));
+		return preg_match('/^get/', $calledMethod);
 	}
 
 	private function generateNameForThePropertyToRetrieve($calledMethod) {
