@@ -9,12 +9,14 @@ class Service {
 	private $serviceContent;
 	private $session;
 	private $clientFactory;
+	private $cloneTicketCache = 'cloneTicket.cache';
 
 	function __construct(Vhost $vhost, \Vmwarephp\Factory\SoapClient $soapClientFactory = null) {
 		$this->vhost = $vhost;
 		$this->clientFactory = $soapClientFactory ? : new \Vmwarephp\Factory\SoapClient();
 		$this->soapClient = $this->clientFactory->make($this->vhost);
 		$this->typeConverter = new TypeConverter($this);
+		$this->cloneTicketCache = dirname(__FILE__).'/'.$this->cloneTicketCache;
 	}
 
 	function __call($method, $arguments) {
@@ -46,8 +48,25 @@ class Service {
 	function connect() {
 		if ($this->session) return $this->session;
 		$sessionManager = $this->getSessionManager();
-		$this->session = $sessionManager->Login(array('userName' => $this->vhost->username, 'password' => $this->vhost->password, 'locale' => null));
+		$this->session = $this->connectWithCloneTicket();
+		if (!$this->session)
+			$this->session = $sessionManager->Login(array('userName' => $this->vhost->username, 'password' => $this->vhost->password, 'locale' => null));
+		$cloneTicket = $sessionManager->AcquireCloneTicket();
+		if (!file_put_contents($this->cloneTicketCache, $cloneTicket))
+			throw new \Exception('There was an error writing to the clone ticket path. Check the permissions of the cache directory.');
 		return $this->session;
+	}
+
+	private function connectWithCloneTicket() {
+		$cloneTicket = file_get_contents($this->cloneTicketCache);
+		if (!$cloneTicket) {
+			return false;
+		}
+		try {
+			return $this->getSessionManager()->CloneSession(array('cloneTicket' => $cloneTicket));
+		} catch (\Exception $e) {
+			return false;
+		}
 	}
 
 	function getServiceContent() {
