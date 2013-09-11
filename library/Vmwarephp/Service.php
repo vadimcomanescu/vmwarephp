@@ -92,7 +92,7 @@ class Service {
 			foreach ($sf->detail as $fault) {
 				$faults[] = "{$fault->enc_stype}: ".print_r($fault->enc_value, true);
 			}
-			$message = "{$sf->faultcode}: ";
+			$message = "{$sf->faultcode}: {$sf->faultstring}. ";
 			if ($sf->string) {
 				$message .= "{$sf->string} ";
 			}
