@@ -41,4 +41,12 @@ class VirtualMachine extends \Vmwarephp\ManagedObject {
 	function getHardware() {
 		return $this->config->hardware;
 	}
+
+	function getConfig() {
+		return $this->config;
+	}
+
+	function getGuestInfo() {
+		return $this->guest;
+	}
 }
