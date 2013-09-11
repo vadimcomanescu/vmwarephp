@@ -37,4 +37,8 @@ class VirtualMachine extends \Vmwarephp\ManagedObject {
 	function getProvisionedSpace() {
 		return $this->summary->storage->committed + $this->summary->storage->uncommitted;
 	}
+
+	function getHardware() {
+		return $this->config->hardware;
+	}
 }
