@@ -5,38 +5,21 @@ class ServiceTest extends PHPUnit_Framework_TestCase {
 	private $vmwareSoapClient;
 	private $vmWareService;
 	private $soapClientFactory;
+	private $vhost;
 
 	function setUp() {
 		$this->soapClientFactory = \Mockery::mock('\Vmwarephp\Factory\SoapClient');
 		$this->soapClientFactory->shouldReceive('getClientClassMap');
+		$this->vhost = $this->aVhost();
 		$this->stubSoapClient();
-		$this->vmWareService = new \Vmwarephp\Service($this->aVhost(), $this->soapClientFactory);
-	}
-
-	function testShouldProvideTheServiceContent() {
-		$rootFolderReference = new \ManagedObjectReference('folder', 'Folder');
-		$this->stubServiceContent(array('rootFolder' => $rootFolderReference));
-
-		$expectedContent = new \ServiceContent(new \Vmwarephp\ManagedObject($this->vmWareService, $rootFolderReference));
-		$this->assertEquals($expectedContent, $this->vmWareService->getServiceContent());
-	}
-
-	function testShouldProvideAManagedObjectFromTheServiceContent() {
-		$rootFolderReference = new \ManagedObjectReference('folder', 'Folder');
-		$this->stubServiceContent(array('rootFolder' => $rootFolderReference));
-
-		$rootFolder = new \Vmwarephp\ManagedObject($this->vmWareService, $rootFolderReference);
-		$this->assertEquals($rootFolder, $this->vmWareService->getRootFolder());
+		$this->vmWareService = new \Vmwarephp\Service($this->vhost, $this->soapClientFactory);
 	}
 
 	function testShouldBeAbleToLoginOnTheGivenHost() {
-		$sessionManager = new \ManagedObjectReference('sessionManager', 'SessionManager');
+		$sessionManager = $this->aMockerSessionManager();
 		$this->stubServiceContent(array('sessionManager' => $sessionManager));
 
-		$this->vmwareSoapClient->expects($this->once())
-			->method('Login')
-			->with(array('_this' => $sessionManager, 'userName' => 'username', 'password' => 'password', 'locale' => ''))
-			->will($this->returnValue(new \LoginResponse('a session')));
+		$sessionManager->shouldReceive('acquireSession')->once()->with($this->vhost->username, $this->vhost->password);
 
 		$this->vmWareService->connect();
 	}
@@ -67,8 +50,16 @@ class ServiceTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals('someConfigStatus', $this->vmWareService->__call('getConfigStatus', array($aManagedObject)));
 	}
 
+
+	//A value need to be set on any of the property for the mocked object to be of the same type as the extension
+	private function aMockerSessionManager() {
+		$sessionManager = \Mockery::mock('\Vmwarephp\Extensions\SessionManager');
+		$sessionManager->someValue = 'someValue';
+		return $sessionManager;
+	}
+
 	private function aMockedPropertyCollector() {
-		$propertyCollector = \Mockery::mock('\Vmwarephp\PropertyCollector');
+		$propertyCollector = \Mockery::mock('\Vmwarephp\Extensions\PropertyCollector');
 		$propertyCollector->someValue = 'someValue';
 		return $propertyCollector;
 	}
