@@ -69,20 +69,9 @@ class Service {
 		$this->soapClient->_classmap = $this->clientFactory->getClientClassMap();
 		try {
 			$result = $this->soapClient->$method($soapMessage);
-		} catch (\SoapFault $sf) {
+		} catch (\SoapFault $soapFault) {
 			$this->soapClient->_classmap = null;
-			$faults = array();
-			foreach ($sf->detail as $fault) {
-				$faults[] = "{$fault->enc_stype}: " . print_r($fault->enc_value, true);
-			}
-			$message = "{$sf->faultcode}: {$sf->faultstring}. ";
-			if ($sf->string) {
-				$message .= "{$sf->string} ";
-			}
-			if (count($faults)) {
-				$message .= implode(', ', $faults);
-			}
-			throw new \Exception($message);
+			throw new \Vmwarephp\Exception\Soap($soapFault);
 		}
 		$this->soapClient->_classmap = null;
 		return $this->convertResponse($result);
