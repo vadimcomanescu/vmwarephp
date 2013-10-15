@@ -32,6 +32,26 @@ class Folder extends \Vmwarephp\ManagedObject
 		return false;
 	}
 
+	public function getChildren($type = '')
+	{
+		if (!$type) {
+			return $this->childEntity;
+		}
+
+		$children = array();
+
+		foreach ($this->childEntity as $child) {
+			if (!is_object($child)) {
+				continue;
+			}
+			if ($child->getReferenceType() === $type) {
+				$children[] = $child;
+			}
+		}
+
+		return $children;
+	}
+
 	/**
 	 * @param $path A folder path delimited with '/' like Folder1/Folder2/etc which would attempt to find Folder1 as a child of this Folder, Folder2 as a child of Folder1, etc as a child of Folder2.
      * @param $create Whether or not to create the folders described by the path if they don't exist.
