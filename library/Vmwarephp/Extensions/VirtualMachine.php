@@ -3,8 +3,8 @@ namespace Vmwarephp\Extensions;
 
 class VirtualMachine extends \Vmwarephp\ManagedObject {
 
-	function takeSnapshot($name, $memory = null, $quiesce = null) {
-		$snapshotTask = $this->CreateSnapshot_Task(array('name' => $name, 'memory' => $memory, 'quiesce' => $quiesce));
+	function takeSnapshot($name, $memory = null, $quiesce = null, $description = '') {
+		$snapshotTask = $this->CreateSnapshot_Task(array('name' => $name, 'description' => $description, 'memory' => $memory, 'quiesce' => $quiesce));
 		return $snapshotTask;
 	}
 
