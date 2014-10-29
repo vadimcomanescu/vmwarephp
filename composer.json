@@ -19,6 +19,6 @@
 		"mockery/mockery":"dev-master"
 	},
         "autoload": {
-            "psr-0": { "Vmwarephp": "" }
+            "psr-0": { "Vmwarephp": "library" }
         }
 }
