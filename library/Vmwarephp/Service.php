@@ -42,6 +42,15 @@ class Service {
 		});
 		return empty($objects) ? null : end($objects);
 	}
+	
+	function findManagedObjectByInstanceUuid($objectType, $uuid, $propertiesToCollect = array()) {
+		$propertiesToCollect = array_merge($propertiesToCollect, ['config']);
+		$allObjects = $this->findAllManagedObjects($objectType, $propertiesToCollect);
+		$objects = array_filter($allObjects, function ($object) use ($uuid) {
+			return $object->config->instanceUuid == $uuid;
+		});
+		return empty($objects) ? null : end($objects);
+	}
 
 	function connect() {
 		if ($this->session) {
