@@ -2,3 +2,5 @@
 library/Vmwarephp/.wsdl_class_map.cache
 library/Vmwarephp/.clone_ticket.cache
 /nbproject/private/
+vendor
+composer.lock

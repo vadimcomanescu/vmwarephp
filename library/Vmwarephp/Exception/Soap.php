@@ -22,11 +22,16 @@ class Soap extends \Exception {
 		return "{$soapFault->faultcode}: {$soapFault->faultstring}. ";
 	}
 
-	private function makeFaultDetailsString($soapFault) {
+	private function makeFaultDetailsString(\SoapFault $soapFault) {
 		$faults = array();
-		foreach ($soapFault->detail as $fault) {
-			$faults[] = "{$fault->enc_stype}: " . print_r($fault->enc_value, true);
-		}
-		return count($faults) ? implode(', ', $faults) : '';
+        // \SoapFault::$detail property can be unexistent
+        // @link https://bugs.php.net/bug.php?id=46792
+        if (isset($soapFault->detail)) {
+            foreach ($soapFault->detail as $fault) {
+                $faults[] = "{$fault->enc_stype}: " . print_r($fault->enc_value, true);
+            }
+        }
+
+		return implode(', ', $faults);
 	}
 }
