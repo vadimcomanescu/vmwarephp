@@ -49,8 +49,37 @@ class TypeConverter {
 		$objProperties = get_object_vars($value);
 		foreach ($objProperties as $propertyName => $propertyValue)
 			$value->$propertyName = $this->convert($propertyValue);
+        if ($value instanceof \KeyAnyValue || $value instanceof \OptionValue) {
+            $value->value = self::correctValue($value->value);
+        }
 		return $value;
 	}
+
+    /**
+     * @param string $key
+     * @param mixed $value
+     */
+    public static function correctValue($value)
+    {
+        switch (gettype($value)) {
+            case 'string':
+                return new \SoapVar($value, XSD_STRING, 'xsd:string');
+            case 'boolean':
+                return new \SoapVar($value, XSD_BOOLEAN, 'xsd:boolean');
+            case 'integer':
+                return new \SoapVar($value, XSD_INT, 'xsd:int');
+            case 'array':
+                $arr =  array_map(function($element){
+                    if(!is_string($element)) {
+                        throw new \RuntimeException('Element is not a string');
+                    }
+                    return TypeConverter::correctValue($element);
+                }, $value);
+                return new \ArrayOfString($arr);
+        }
+
+        return $value;
+    }
 
 	private function isAnObjectContent($value) {
 		return $value instanceof \ObjectContent;

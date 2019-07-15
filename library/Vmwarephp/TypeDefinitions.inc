@@ -14754,6 +14754,10 @@ class HostIpRouteConfig {
 	}
 }
 
+class HostVirtualNicIpRouteSpec {}
+class HostNetworkConfigNetStackSpec {}
+class HostNetStackInstance {}
+
 class HostIpRouteConfigSpec {
 	public $gatewayDeviceConnection; //HostVirtualNicConnection
 	public $ipV6GatewayDeviceConnection; //HostVirtualNicConnection
