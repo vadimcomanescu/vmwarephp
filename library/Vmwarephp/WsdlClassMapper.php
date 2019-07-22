@@ -3,7 +3,7 @@ namespace Vmwarephp;
 
 class WsdlClassMapper {
 	private $classDefinitionsFilePath;
-	private $useClassMapCaching = true;
+	private $useClassMapCaching = false;
 	private $classMapCacheFile;
 
 	function __construct($classDefinitionsFilePath = null) {
@@ -20,7 +20,7 @@ class WsdlClassMapper {
 		return $classMap;
 	}
 
-	function configureClassMapCaching($useCaching = true) {
+	function configureClassMapCaching($useCaching = false) {
 		$this->useClassMapCaching = $useCaching;
 	}
 
